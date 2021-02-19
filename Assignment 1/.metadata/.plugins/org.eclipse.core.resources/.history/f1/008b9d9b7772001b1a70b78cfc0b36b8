@@ -1,0 +1,94 @@
+import java.util.HashMap;
+import java.util.*;
+
+
+class Item {
+	public int id;
+	public int price;
+	Item(int id, int price){
+		this.id = id;
+		this.price = price;
+	}
+}
+
+class Inventory {
+	public HashMap<Integer,Integer> itemAmount = new HashMap<Integer,Integer>();
+	public HashMap<Integer,Integer> itemPrice = new HashMap<Integer,Integer>();
+	
+	private void addAmount(int id){
+		if(itemAmount.get(id)==null){
+			itemAmount.put(id,1);
+			return;
+		}
+		int amount = itemAmount.get(id);
+		itemAmount.put(id, amount+1);
+	}
+	
+	private void addPrice(int id, int price){
+		itemPrice.put(id, price);
+	}
+	
+	private void addToInventory(Item item){
+		addAmount(item.id);
+		addPrice(item.id,item.price);
+	}
+}
+
+class Cart extends Inventory {
+	public int total;
+	private ArrayList<Integer> presentCart = new ArrayList<Integer>();
+	public HashMap<Integer, Integer> cartPrice = new 
+					HashMap<Integer, Integer>();
+	private HashMap<Integer, Integer> cartItem = new HashMap<Integer, Integer>();
+	
+	public String addItem(int id, int amountAdd){
+		if(itemAmount.get(id) < amountAdd){
+			return "Quantity not available";
+		}
+		if(cartItem.get(id)==null){
+			cartItem.put(id, amountAdd);
+		}
+		else {
+			cartItem.put(id, cartItem.get(id) + amountAdd);
+		}
+		if(cartPrice.get(id)==null){
+			cartPrice.put(id, itemPrice.get(id)*amountAdd);
+		}
+		else{
+			cartPrice.put(id, cartPrice.get(id)+(itemPrice.get(id)*amountAdd));
+		}
+		total = total + cartPrice.get(id);
+		if(!presentCart.contains(id)){
+			presentCart.add(id);
+		}
+		itemAmount.put(id, itemAmount.get(id) - amountAdd);
+		return "Added to cart";
+	}
+	public String removeItem(int id, int amountRemove){
+		if(!presentCart.contains(id)){
+			return "Your cart does not have the item";
+		}
+		if(amountRemove > cartItem.get(id)){
+			return "Not enough items";
+		}
+		if(amountRemove == cartItem.get(id)){
+			cartItem.put(id, null);
+			presentCart.remove(new Integer(id));
+			return "Cart updated successfully";
+		}
+		cartItem.put(id, cartItem.get(id)-amountRemove);
+		cartPrice.put(id, cartPrice.get(id)-(itemPrice.get(id)*amountRemove));
+		total = total - itemPrice.get(id)*amountRemove;
+		return "Cart updated successfully";
+	}
+}
+
+public class Main {
+
+	public static void main(String[] args) {
+		Inventory inventory = new Inventory();
+		Item socks = new Item(1 , 30);
+		System.out.print(inventory.itemAmount.get(1));
+	}
+
+}
