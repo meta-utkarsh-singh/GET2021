@@ -44,6 +44,7 @@ class Cart {
 	private HashMap<Integer, Integer> cartItem = new HashMap<Integer, Integer>();
 	
 	public String addItem(int id, int amountAdd, Inventory inventory){
+		System.out.println(inventory.itemAmount.get(id));
 		if(inventory.itemAmount.get(id) < amountAdd){
 			
 			return "Quantity not available";
@@ -86,14 +87,6 @@ class Cart {
 		inventory.itemAmount.put(id, inventory.itemAmount.get(id)+amountRemove);
 		return "Cart updated successfully";
 	}
-	public void showCart(Inventory inventory){
-		for(int i = 0; i<presentCart.size();i++){
-			int currentItem = presentCart.get(i);
-			System.out.println(currentItem+" "+inventory.itemAmount.get(currentItem)+ " "
-					+ cartPrice.get(currentItem) + cartItem.get(currentItem));
-			System.out.println("Total: "+total);
-		}
-	}
 }
 
 public class Main {
@@ -127,6 +120,7 @@ public class Main {
 				System.out.println("Enter the item id and the amount to be added");
 				int id = scanner.nextInt();
 				int amount = scanner.nextInt();
+				System.out.println(inventory.itemAmount.get(id)<amount);
 				System.out.println(cart.addItem(id,amount,inventory));
 				continue;
 			}
@@ -136,9 +130,6 @@ public class Main {
 				int amount = scanner.nextInt();
 				System.out.println(cart.removeItem(id,amount,inventory));
 				continue;
-			}
-			if(inputFromUser == 3){
-				cart.showCart(inventory);
 			}
 		}
 	}
