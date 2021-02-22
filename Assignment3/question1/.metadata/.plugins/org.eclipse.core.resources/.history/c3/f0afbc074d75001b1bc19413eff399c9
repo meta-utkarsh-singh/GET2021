@@ -1,0 +1,94 @@
+import java.util.*;
+
+final class intSet {
+	final private int set [];
+	final private int checkRepeat[];
+	/**
+	 * 
+	 * @param arr set of integer
+	 * @param value the value to which the array elements are set to.
+	 * sets the value of all elements of array to value.
+	 */
+	private void setValue(int arr[], int value){
+		for(int i = 0 ; i < arr.length ; i++) {
+			arr [i] = value;
+		}
+	}
+	/**
+	 * 
+	 * @param inpArr
+	 * 			requires: input array of numbers with values in 1-1000
+	 * creates a set from the given array
+	 */
+	intSet(int inpArr[]){
+		int length = inpArr.length;
+		this.set = new int[length];
+		this.checkRepeat = new int[1001];
+		setValue(this.set, 0);
+		setValue(this.checkRepeat, 0);
+		for(int i = 0 ; i < length ; i++){
+			if(this.checkRepeat[inpArr[i]] == 0){
+				this.set[i] = inpArr[i];
+			}
+			this.checkRepeat[inpArr[i]] = 1;
+		}
+	}
+	/**
+	 * 
+	 * @return
+	 * 		return: the size of the set
+	 */
+	public int size(){
+		int length = 0;
+		for(int i = 0 ; i < 1001 ; i++){
+			if(set[i]!=0){
+				length++;
+				continue;
+			}
+			break;
+		}
+		return length;
+	}
+	/**
+	 * 
+	 * @param checkMember any integer to be searched in set.
+	 * @return return true if the integer is found, false in all other cases.
+	 */
+	public boolean isMember(int checkMember){
+		for(int i = 0 ; i < this.set.length ; i++){
+			if(this.set[i] == checkMember){
+				return true;
+			}
+		}
+		return false;
+	}
+	public int[] union(intSet s1, intSet s2){
+		int unionSet[] = new int[1001];
+		int checkSet1[] = new int[1001];
+		int checkSet2[] = new int[1001];
+		setValue(checkSet1 , 0);
+		setValue(checkSet2 , 0);
+		for(int i = 0 ; i < 1001; i++){
+			checkSet1[s1.set[i]] = 1;
+			checkSet2[s2.set[i]] = 1;
+		}
+		for(int i = 0 ; i < 1001 ; i++){
+			if(checkSet1[i] == 1 && checkSet2[i] == 1){
+				unionSet[i] = checkSet1[i];
+				continue;
+			}
+			unionSet[i] = checkSet1[i];
+			unionSet[i+1] = checkSet2[i];
+		}
+		return unionSet;
+	}
+}
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
