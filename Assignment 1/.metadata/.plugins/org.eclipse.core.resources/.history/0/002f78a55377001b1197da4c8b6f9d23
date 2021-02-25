@@ -16,7 +16,7 @@ class Item {
 class Inventory {
 	public HashMap<Integer,Integer> itemAmount = new HashMap<Integer,Integer>();
 	public HashMap<Integer,Integer> itemPrice = new HashMap<Integer,Integer>();
-	public HashMap<Integer,String> itemName = new HashMap<Integer, String>();
+	
 	private void addAmount(int id){
 		if(itemAmount.get(id)==null){
 			itemAmount.put(id,1);
@@ -30,14 +30,9 @@ class Inventory {
 		itemPrice.put(id, price);
 	}
 	
-	private void addName(int id, String name){
-		itemName.put(id, name);
-	}
-	
 	public void addToInventory(Item item){
 		addAmount(item.id);
 		addPrice(item.id,item.price);
-		addName(item.id, item.name);
 	}
 }
 
@@ -49,10 +44,8 @@ class Cart {
 	private HashMap<Integer, Integer> cartItem = new HashMap<Integer, Integer>();
 	
 	public String addItem(int id, int amountAdd, Inventory inventory){
-		if(!inventory.itemAmount.containsKey(id)){
-			return "Item not available";
-		}
 		if(inventory.itemAmount.get(id) < amountAdd){
+			
 			return "Quantity not available";
 		}
 		if(cartItem.get(id)==null){
@@ -96,8 +89,8 @@ class Cart {
 	public void showCart(Inventory inventory){
 		for(int i = 0; i<presentCart.size();i++){
 			int currentItem = presentCart.get(i);
-			System.out.println(currentItem+" "+inventory.itemName.get(currentItem)+" "
-					+ cartPrice.get(currentItem) + " " + cartItem.get(currentItem)+" ");
+			System.out.println(currentItem+" "+inventory.itemAmount.get(currentItem)+ " "
+					+ cartPrice.get(currentItem) + cartItem.get(currentItem));
 			System.out.println("Total: "+total);
 		}
 	}

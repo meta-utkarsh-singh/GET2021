@@ -97,7 +97,8 @@ class Cart {
 		for(int i = 0; i<presentCart.size();i++){
 			int currentItem = presentCart.get(i);
 			System.out.println(currentItem+" "+inventory.itemName.get(currentItem)+" "
-					+ cartPrice.get(currentItem) + " " + cartItem.get(currentItem)+" ");
+					+inventory.itemAmount.get(currentItem)+ " "
+					+ cartPrice.get(currentItem) + cartItem.get(currentItem));
 			System.out.println("Total: "+total);
 		}
 	}
