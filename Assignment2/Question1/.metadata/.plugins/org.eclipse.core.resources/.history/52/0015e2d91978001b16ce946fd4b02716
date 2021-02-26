@@ -71,7 +71,7 @@ class HexCalc implements BaseConverter {
 	public String subtractNumbers(String number1, String number2){
 		Integer number1Integer = convertToDecimal(number1);
 		Integer number2Integer = convertToDecimal(number2);
-		Integer difference = Math.abs(number1Integer-number2Integer);
+		Integer difference = Math.abs(number1Integer+number2Integer);
 		String differenceOfNumbers = convertFromDecimal(difference); 
 		return differenceOfNumbers;
 	}
