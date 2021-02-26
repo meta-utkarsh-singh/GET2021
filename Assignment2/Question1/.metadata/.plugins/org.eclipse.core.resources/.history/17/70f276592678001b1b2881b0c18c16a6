@@ -98,7 +98,7 @@ class HexCalc implements BaseConverter {
 			number1EqualLength = number1;
 			int j = 0;
 			for(int i = 0 ; i < number1.length() ; i++) {
-				if(i+number2.length() < number1.length()) {
+				if(i+number2.length()+1 < number1.length()) {
 					number2EqualLength = number2EqualLength + '0';
 					continue;
 				}
@@ -110,7 +110,7 @@ class HexCalc implements BaseConverter {
 			number2EqualLength = number2;
 			int j = 0;
 			for(int i = 0 ; i < number2.length() ; i++) {
-				if(i+number1.length() < number2.length()) {
+				if(i+number1.length()+1 < number2.length()) {
 					number1EqualLength = number1EqualLength + '0';
 					continue;
 				}
@@ -134,7 +134,7 @@ class HexCalc implements BaseConverter {
 			number1EqualLength = number1;
 			int j = 0;
 			for(int i = 0 ; i < number1.length() ; i++) {
-				if(i+number2.length() < number1.length()) {
+				if(i+number2.length()+1 < number1.length()) {
 					number2EqualLength = number2EqualLength + '0';
 					continue;
 				}
@@ -146,7 +146,7 @@ class HexCalc implements BaseConverter {
 			number2EqualLength = number2;
 			int j = 0;
 			for(int i = 0 ; i < number2.length() ; i++) {
-				if(i+number1.length() < number2.length()) {
+				if(i+number1.length()+1 < number2.length()) {
 					number1EqualLength = number1EqualLength + '0';
 					continue;
 				}
@@ -170,7 +170,7 @@ class HexCalc implements BaseConverter {
 			number1EqualLength = number1;
 			int j = 0;
 			for(int i = 0 ; i < number1.length() ; i++) {
-				if(i+number2.length() < number1.length()) {
+				if(i+number2.length()+1 < number1.length()) {
 					number2EqualLength = number2EqualLength + '0';
 					continue;
 				}
@@ -182,7 +182,7 @@ class HexCalc implements BaseConverter {
 			number2EqualLength = number2;
 			int j = 0;
 			for(int i = 0 ; i < number2.length() ; i++) {
-				if(i+number1.length() < number2.length()) {
+				if(i+number1.length()+1 < number2.length()) {
 					number1EqualLength = number1EqualLength + '0';
 					continue;
 				}
@@ -194,6 +194,7 @@ class HexCalc implements BaseConverter {
 			number2EqualLength = number2;
 			number1EqualLength = number1;
 		}
+		System.out.println(number1EqualLength+" "+number2EqualLength);
 		if(number1EqualLength.compareTo(number2EqualLength)==0){
 			return true;
 		}

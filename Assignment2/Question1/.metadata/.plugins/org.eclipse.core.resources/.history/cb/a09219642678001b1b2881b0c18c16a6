@@ -194,6 +194,7 @@ class HexCalc implements BaseConverter {
 			number2EqualLength = number2;
 			number1EqualLength = number1;
 		}
+		System.out.println(number1EqualLength+" "+number2EqualLength);
 		if(number1EqualLength.compareTo(number2EqualLength)==0){
 			return true;
 		}

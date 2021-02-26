@@ -96,26 +96,22 @@ class HexCalc implements BaseConverter {
 		String number1EqualLength = new String();
 		if(number1.length() > number2.length()){
 			number1EqualLength = number1;
-			int j = 0;
-			for(int i = 0 ; i < number1.length() ; i++) {
+			for(int i = 0 ; i < number2.length() ; i++) {
 				if(i+number2.length() < number1.length()) {
 					number2EqualLength = number2EqualLength + '0';
 					continue;
 				}
-				number2EqualLength = number2EqualLength + number2.charAt(j);
-				j++;
+				number2EqualLength = number2EqualLength + number2.charAt(i);
 			}
 		}
 		else if(number1.length() < number2.length()){
 			number2EqualLength = number2;
-			int j = 0;
-			for(int i = 0 ; i < number2.length() ; i++) {
+			for(int i = 0 ; i < number1.length() ; i++) {
 				if(i+number1.length() < number2.length()) {
 					number1EqualLength = number1EqualLength + '0';
 					continue;
 				}
-				number1EqualLength = number1EqualLength + number1.charAt(j);
-				j++;
+				number1EqualLength = number1EqualLength + number1.charAt(i);
 			}
 		}
 		else {
@@ -132,26 +128,22 @@ class HexCalc implements BaseConverter {
 		String number1EqualLength = new String();
 		if(number1.length() > number2.length()){
 			number1EqualLength = number1;
-			int j = 0;
-			for(int i = 0 ; i < number1.length() ; i++) {
+			for(int i = 0 ; i < number2.length() ; i++) {
 				if(i+number2.length() < number1.length()) {
 					number2EqualLength = number2EqualLength + '0';
 					continue;
 				}
-				number2EqualLength = number2EqualLength + number2.charAt(j);
-				j++;
+				number2EqualLength = number2EqualLength + number2.charAt(i);
 			}
 		}
 		else if(number1.length() < number2.length()){
 			number2EqualLength = number2;
-			int j = 0;
-			for(int i = 0 ; i < number2.length() ; i++) {
+			for(int i = 0 ; i < number1.length() ; i++) {
 				if(i+number1.length() < number2.length()) {
 					number1EqualLength = number1EqualLength + '0';
 					continue;
 				}
-				number1EqualLength = number1EqualLength + number1.charAt(j);
-				j++;
+				number1EqualLength = number1EqualLength + number1.charAt(i);
 			}
 		}
 		else {
@@ -168,32 +160,29 @@ class HexCalc implements BaseConverter {
 		String number1EqualLength = new String();
 		if(number1.length() > number2.length()){
 			number1EqualLength = number1;
-			int j = 0;
-			for(int i = 0 ; i < number1.length() ; i++) {
+			for(int i = 0 ; i < number2.length() ; i++) {
 				if(i+number2.length() < number1.length()) {
 					number2EqualLength = number2EqualLength + '0';
 					continue;
 				}
-				number2EqualLength = number2EqualLength + number2.charAt(j);
-				j++;
+				number2EqualLength = number2EqualLength + number2.charAt(i);
 			}
 		}
 		else if(number1.length() < number2.length()){
 			number2EqualLength = number2;
-			int j = 0;
-			for(int i = 0 ; i < number2.length() ; i++) {
+			for(int i = 0 ; i < number1.length() ; i++) {
 				if(i+number1.length() < number2.length()) {
 					number1EqualLength = number1EqualLength + '0';
 					continue;
 				}
-				number1EqualLength = number1EqualLength + number1.charAt(j);
-				j++;
+				number1EqualLength = number1EqualLength + number1.charAt(i);
 			}
 		}
 		else {
 			number2EqualLength = number2;
 			number1EqualLength = number1;
 		}
+		System.out.println(number1EqualLength+" "+number2EqualLength);
 		if(number1EqualLength.compareTo(number2EqualLength)==0){
 			return true;
 		}
