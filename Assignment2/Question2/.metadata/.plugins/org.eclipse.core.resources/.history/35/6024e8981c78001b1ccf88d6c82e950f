@@ -63,15 +63,6 @@ class JobScheduler {
 		}
 		return waitingTime;
 	}
-	/**
-	 * 
-	 * @param arr 
-	 * 			requires: 2-d array representing positive arrival time and burst time
-	 * @param numberOfProcess
-	 * 			requires: non-zero number of process
-	 * @return
-	 * 			return: average waiting time for task completion
-	 */
 	public double findAverageWaiting(int arr[][], int numberOfProcess){
 		double averageWaitingTime = 0;
 		List<Integer> waitingTime = new ArrayList<Integer>();
@@ -81,23 +72,5 @@ class JobScheduler {
 		}
 		averageWaitingTime = averageWaitingTime/numberOfProcess;
 		return averageWaitingTime;
-	}
-	/**
-	 * 
-	 * @param arr
-	 * 			requires: 2-d array representing positive arrival time and burst time
-	 * @param numberOfProcess
-	 * 			requires: non-zero number of process
-	 * @return
-	 * 			return: maximum waiting time
-	 */
-	public double maxWaitingTime(int arr[][], int numberOfProcess) {
-		int maxWaiting = 0;
-		List<Integer> waitingTime = new ArrayList<Integer>();
-		waitingTime = findWaiting(arr, numberOfProcess);
-		for(int i = 0 ; i < numberOfProcess ; i++){
-			maxWaiting = Math.max(maxWaiting, waitingTime.get(i));
-		}
-		return maxWaiting;
 	}
 }
