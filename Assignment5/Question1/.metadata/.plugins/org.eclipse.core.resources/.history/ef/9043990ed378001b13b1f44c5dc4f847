@@ -75,7 +75,6 @@ public class StringOperation {
 			if(s.charAt(i) == ' '){
 				if(lengthOfWord >= maxLength){
 					largestWord = word;
-					maxLength = lengthOfWord;
 				}
 				lengthOfWord = 0;
 				word = "";

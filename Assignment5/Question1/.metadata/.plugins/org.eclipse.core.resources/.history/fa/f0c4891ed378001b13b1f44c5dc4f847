@@ -69,13 +69,13 @@ public class StringOperation {
 		String word = new String();
 		for(int i = 0 ; i < s.length() ; i++){
 			if(i == s.length() - 1 && lengthOfWord+1 >= maxLength){
+				System.out.println(lengthOfWord+ " " + maxLength);
 				largestWord = word + s.charAt(i);
 				continue;
 			}
 			if(s.charAt(i) == ' '){
 				if(lengthOfWord >= maxLength){
 					largestWord = word;
-					maxLength = lengthOfWord;
 				}
 				lengthOfWord = 0;
 				word = "";
