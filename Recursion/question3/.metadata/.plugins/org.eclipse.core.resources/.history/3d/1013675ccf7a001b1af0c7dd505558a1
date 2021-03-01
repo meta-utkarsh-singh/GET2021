@@ -1,0 +1,85 @@
+
+public class Nqueen {
+	private int arr[][];
+	private int dimension;
+	private int startRow;
+	Nqueen(int arr[][], int dimension, int startRow){
+		this.arr = arr;
+		this.dimension = dimension;
+		this.startRow = startRow;
+	}
+	/**
+	 * 
+	 * @param arr representation of n*n board
+	 * @param row the present row at which we are trying to place the queen
+	 * @param dimension dimension of board
+	 * @return 1 if it is safe to place a queen on that square,
+	 * 		   0 in all other cases
+	 */
+	private int isSafe(int arr[][], int row, int col, int dimension){
+		int rowCount = row;
+		for(int i = rowCount; i < dimension && rowCount < dimension ; i++){
+			if(arr[rowCount][i] == 1){
+				return 0;
+			}
+			rowCount++;
+		}
+		rowCount = row;
+		for(int i = rowCount; i > 0 && rowCount > 0 ; i--){
+			if(arr[rowCount][i] == 1){
+				return 0;
+			}
+			rowCount--;
+		}
+		for(int i = 0; i < dimension; i++){
+			if(arr[row][i] == 1){
+				return 0;
+			}
+		}
+		for(int i = 0; i < dimension; i++){
+			if(arr[col][i] == 1){
+				return 0;
+			}
+		}
+		rowCount = row;
+		for(int i = rowCount; i < dimension && rowCount > 0 ; i++){
+			if(arr[rowCount][i] == 1){
+				return 0;
+			}
+			rowCount--;
+		}
+		rowCount = row;
+		for(int i = rowCount ; i > 0  && rowCount < dimension ; i++){
+			if(arr[rowCount][i] == 0){
+				return 0;
+			}
+			rowCount++;
+		}
+		return 1;
+	}
+	/**
+	 * 
+	 * @param arr array representing the board of given dimension
+	 * @param startRow starting row for placing queens
+	 * @param dimension dimension of board
+	 * @return true if it is possible to place the queens on board
+	 * 		   false in all other cases
+	 */
+	public boolean findNqueen(int arr[][], int startRow, int dimension){
+		if(startRow>=dimension){
+			System.out.println();
+			return true;
+		}
+		for(int i = 0 ; i < dimension ; i++){
+			if(isSafe(arr, startRow, i, this.dimension) == 1){
+				arr[startRow][i] = 1;
+			}
+			if(findNqueen(arr, (startRow)+1, dimension)){
+				System.out.println(startRow);
+				return true;
+			}
+			arr[startRow][i] = 0;
+		}
+		return false;
+	}
+}
