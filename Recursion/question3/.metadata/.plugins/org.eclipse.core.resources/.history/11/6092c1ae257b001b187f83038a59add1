@@ -1,0 +1,19 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+
+public class TestKnightTour {
+
+	@Test
+	public void test() {
+		int arr[][] = {{0,-1,-1,-1},{-1,-1,-1,-1},{-1,-1,-1,-1},{-1,-1,-1,-1}};
+		int noOfMoves = 1;
+		int dimension = 4;
+		int row = 0;
+		int col = 0;
+		KnightTour kt = new KnightTour(arr, dimension);
+		assertEquals(false, kt.knightTour(arr, noOfMoves, row, col, dimension));
+	}
+
+}
