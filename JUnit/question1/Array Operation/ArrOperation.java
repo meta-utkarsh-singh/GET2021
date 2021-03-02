@@ -93,7 +93,7 @@ public class ArrOperation {
 		int countX = 0;
 		int countY = 0;
 		int fixedArray [] = new int[length];
-		for(int i = 0 ; i < countX ; i++){
+		for(int i = 0 ; i < length ; i++){
 			if((i>0 && arr[i]==X && arr[i-1] == X) || (i==length-1 && arr[i]==X)){
 				assert(false);
 			}
