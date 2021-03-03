@@ -27,13 +27,6 @@ public class testSearch {
 		assertEquals(2,search.linearSearch(arr, value));
 	}
 	@Test
-	public void testLinearSearch4(){
-		int arr[] = {1,2,3,4,6,5,7};
-		int value = 8;
-		Search search = new Search();
-		assertEquals(-1,search.linearSearch(arr, value));
-	}
-	@Test
 	public void testBinarySearch1(){
 		int arr[] = {1,2,3,4,5,6,7};
 		int value = 7;
