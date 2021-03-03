@@ -1,0 +1,30 @@
+
+public interface Shape {
+	enum ShapeType {
+		Square,
+		Circle,
+		Rectangle,
+		Triangle
+	}
+	/**
+	 * 
+	 * @return area of the given shape
+	 */
+	double getArea();
+	/**
+	 * 
+	 * @return perimeter of the given shape
+	 */
+	double getPerimeter();
+	/**
+	 * 
+	 * @return coordinate of origin of the given shape
+	 */
+	double getOrigin();
+	/**
+	 * 
+	 * @return true of point is within or on 
+	 * 		   boundary of shape,false in other cases
+	 */
+	boolean isPointEnclosed();
+}
