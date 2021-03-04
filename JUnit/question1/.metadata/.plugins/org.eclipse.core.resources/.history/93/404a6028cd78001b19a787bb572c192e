@@ -1,0 +1,67 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+
+public class TestArray {
+
+	@Test
+	public void testMaxMirror1(){
+		ArrOperation arrOp = new ArrOperation();
+		int testArr1[] = {1,2,3,4};
+		int maxMirror = arrOp.maxMirror(testArr1);
+		assertEquals(1,maxMirror);
+	}
+	@Test
+	public void testMaxMirror2(){
+		ArrOperation arrOp = new ArrOperation();
+		int testArr1[] = {1,2,3,4,3,2,1};
+		int maxMirror = arrOp.maxMirror(testArr1);
+		assertEquals(4,maxMirror);
+	}
+	@Test
+	public void testNumberOfClumps1(){
+		ArrOperation arrOp = new ArrOperation();
+		int testArr1[] = {1,2,3,4};
+		int clumps = arrOp.numberOfClumps(testArr1);
+		assertEquals(0,clumps);
+	}
+	@Test
+	public void testNumberOfClumps2(){
+		ArrOperation arrOp = new ArrOperation();
+		int testArr1[] = {1,2,3,4,2,2,4,2,2,4,3,3};
+		int clumps = arrOp.numberOfClumps(testArr1);
+		assertEquals(3,clumps);
+	}
+	@Test
+	public void testSplitArray1(){
+		ArrOperation arrOp = new ArrOperation();
+		int testArr1[] = {1,2,3,6};
+		int index = arrOp.splitArray(testArr1);
+		assertEquals(3,index);
+	}
+	@Test
+	public void testSplitArray2(){
+		ArrOperation arrOp = new ArrOperation();
+		int testArr1[] = {1,2,3,6,5};
+		int index = arrOp.splitArray(testArr1);
+		assertEquals(-1,index);
+	}
+	@Test
+	public void testSplitArray3(){
+		ArrOperation arrOp = new ArrOperation();
+		int testArr1[] = {1,2,3,6,6};
+		int index = arrOp.splitArray(testArr1);
+		assertEquals(-1,index);
+	}
+	@Test
+	public void testfixXy1(){
+		ArrOperation arrOp = new ArrOperation();
+		int testArr1[] = {3,2,3,3,6,2,4,2,5};
+		int ansArr[] = {4,2,3,5,6,2,3,2,3};
+		int testX = 2;
+		int testY = 3;
+		int fixedArray[] = arrOp.fixXY(testArr1, testX, testY);
+		assertEquals(ansArr,fixedArray);
+	}
+}
