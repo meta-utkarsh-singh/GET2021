@@ -148,9 +148,12 @@ class Poly {
 		Poly multipliedPoly = new Poly(mapToArray(multPoly));
 		return multipliedPoly;
 	}
+	/**
+	 * prints the polynomial on console
+	 */
 	public void showPoly(){
 		for(int i = 0 ; i < this.sizeOfPolynomial ; i++){
-			System.out.print(this.polynomial[i].first()+" "+this.polynomial[i].second()+" ");
+			System.out.println(this.polynomial[i].first()+" "+this.polynomial[i].second()+" ");
 		}
 	}
 	
