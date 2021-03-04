@@ -1,0 +1,22 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+
+public class tesLinkedList {
+
+	@Test
+	public void testInsert() {
+		LinkedList linkedList = new LinkedList();
+		linkedList.insert(1);
+		linkedList.insert(2);
+		linkedList.insert(3);
+		int checkArr[] = {1,2,3};
+		Node headLinkedList = linkedList.getHead();
+		for(int i = 0 ; i < checkArr.length ; i++){
+			assert(checkArr[i] == headLinkedList.getValue());
+			headLinkedList = headLinkedList.getNext();
+		}
+	}
+
+}
