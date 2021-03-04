@@ -23,6 +23,12 @@ public class Polynomial {
 	 * @param polynomial polynomial in which it needs to be added
 	 */
 	public void createPolynomial(Quadruple q, int indexForQuadruple, List<LinkedList<Quadruple>>polynomial) {
+		if(polynomial.size() <= indexForQuadruple){
+			LinkedList<Quadruple> currentPart = new LinkedList<Quadruple>();
+			currentPart.addLast(q);
+			polynomial.add(indexForQuadruple, currentPart);
+			return;
+		}
 		polynomial.get(indexForQuadruple).addLast(q);
 	}
 	/**
