@@ -103,16 +103,15 @@ public class TestArray {
 	@org.junit.Test(expected = AssertionError.class)
 	public void testfixXy2(){
 		ArrOperation arrOp = new ArrOperation();
-		int testArr1[] = {2,3,4};
+		int testArr1[] = {2,3,2,4};
 		int testX = 2;
 		int testY = 3;
-		int ansArr []= {4,2,3,5,6,2,3,2,3};
 		int fixedArray[] = arrOp.fixXY(testArr1, testX, testY);
 	}
 	@org.junit.Test(expected = AssertionError.class)
 	public void testfixXy3(){
 		ArrOperation arrOp = new ArrOperation();
-		int testArr1[] = {2,3,4};
+		int testArr1[] = {2,3,3};
 		int testX = 2;
 		int testY = 3;
 		int fixedArray[] = arrOp.fixXY(testArr1, testX, testY);

@@ -175,7 +175,7 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_GLB3THgQEeuXObrO_Kl_qA" elementId="org.eclipse.egit.ui.RepositoriesView" toBeRendered="false" ref="_GLB3QHgQEeuXObrO_Kl_qA"/>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_GLB3TXgQEeuXObrO_Kl_qA" containerData="7500" selectedElement="_GLB3TngQEeuXObrO_Kl_qA">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_GLB3TXgQEeuXObrO_Kl_qA" containerData="7500" selectedElement="_GLB3V3gQEeuXObrO_Kl_qA">
               <children xsi:type="basic:PartSashContainer" xmi:id="_GLB3TngQEeuXObrO_Kl_qA" containerData="7500" selectedElement="_GLB3T3gQEeuXObrO_Kl_qA" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_GLB3T3gQEeuXObrO_Kl_qA" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_WYiMMHgGEeuXObrO_Kl_qA"/>
                 <children xsi:type="basic:PartSashContainer" xmi:id="_GLB3UHgQEeuXObrO_Kl_qA" containerData="2500">
@@ -239,7 +239,7 @@
         <tags>EditorStack</tags>
         <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_kR_YwHwLEeuu94eo-HzIfQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="TestArray.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;TestArray.java&quot; partName=&quot;TestArray.java&quot; title=&quot;TestArray.java&quot; tooltip=&quot;C:\Users\utkarsh.singh_metacu\Desktop\Get2021\GET2021\JUnit\question1\Array Operation\TestArray.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/utkarsh.singh_metacu/Desktop/Get2021/GET2021/JUnit/question1/Array%20Operation/TestArray.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3935&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;TestArray.java&quot; partName=&quot;TestArray.java&quot; title=&quot;TestArray.java&quot; tooltip=&quot;C:\Users\utkarsh.singh_metacu\Desktop\Get2021\GET2021\JUnit\question1\Array Operation\TestArray.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/C:/Users/utkarsh.singh_metacu/Desktop/Get2021/GET2021/JUnit/question1/Array%20Operation/TestArray.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3181&quot; selectionTopPixel=&quot;1857&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -420,7 +420,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_WIY3YHgGEeuXObrO_Kl_qA" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_d9nQoHwLEeuu94eo-HzIfQ" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_VKKWoHgGEeuXObrO_Kl_qA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_lqEDEHzIEeue2cS6OZAqpA" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_VKKWoHgGEeuXObrO_Kl_qA"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_WIY3YXgGEeuXObrO_Kl_qA" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -453,10 +453,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_WIZecHgGEeuXObrO_Kl_qA" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_d9sJIXwLEeuu94eo-HzIfQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_VKKWSXgGEeuXObrO_Kl_qA"/>
-      </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_1xPIwHwJEeuUp8QqT8BijA" elementId="org.eclipse.jdt.ui.CompilationUnitEditor">
-        <tags>Draggable</tags>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_lqI7kXzIEeue2cS6OZAqpA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_VKKWSXgGEeuXObrO_Kl_qA"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_WIZecXgGEeuXObrO_Kl_qA" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
