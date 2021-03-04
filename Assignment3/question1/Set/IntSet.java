@@ -1,6 +1,5 @@
-import java.util.*;
 
-final class intSet {
+final class IntSet {
 	final private int set [];
 	final private int checkRepeat[];
 	final private int maxSize = 1001;
@@ -22,8 +21,9 @@ final class intSet {
 	 * 			requires: input array of numbers with values in 1-1000
 	 * creates a set from the given array
 	 */
-	intSet(int inpArr[]){
+	IntSet(int inpArr[]){
 		int length = inpArr.length;
+		int index = 0;
 		this.set = new int[maxSize];
 		this.checkRepeat = new int[maxSize];
 		setValue(this.set, 0);
@@ -33,8 +33,8 @@ final class intSet {
 		}
 		for(int i = 0 ; i < length ; i++){
 			if(this.checkRepeat[inpArr[i]] == 0){
-				System.out.print(this.checkRepeat[inpArr[i]]+" ");
-				this.set[i] = inpArr[i];
+				this.set[index] = inpArr[i];
+				index++;
 			}
 			this.checkRepeat[inpArr[i]] = 1;
 		}
@@ -47,8 +47,7 @@ final class intSet {
 	public int size(){
 		int length = 0;
 		for(int i = 0 ; i < maxSize ; i++){
-			if(set[i]!=0){
-				System.out.println(set[i]);
+			if(this.set[i]!=0){
 				length++;
 				continue;
 			}
@@ -71,12 +70,12 @@ final class intSet {
 	}
 	/**
 	 * 
-	 * @param s1 intSet with values between 1-1000.
-	 * @param s2 intSet with values between 1-1000.
-	 * @return intSet containing elements 
+	 * @param s1 IntSet with values between 1-1000.
+	 * @param s2 IntSet with values between 1-1000.
+	 * @return IntSet containing elements 
 	 * 		   present in s1 union s2.
 	 */
-	public intSet union(intSet s1, intSet s2){
+	public IntSet union(IntSet s1, IntSet s2){
 		int unionSet[] = new int[maxSize];
 		int checkSet1[] = new int[maxSize];
 		int checkSet2[] = new int[maxSize];
@@ -96,26 +95,29 @@ final class intSet {
 			if(checkSet2[i] == 1)
 				unionSet[i] = i;
 		}
-		intSet union = new intSet(unionSet);
+		IntSet union = new IntSet(unionSet);
 		return union;
 	}
 	/**
 	 * 
-	 * @param s intSet of integer in range 1-1000
-	 * @return the complement of intSet for union set [1,1000]
+	 * @return the complement of IntSet object
+	 * 		   for union set [1,1000]
 	 */
-	public intSet getComplement(intSet s){
+	public IntSet getComplement(){
+		IntSet s = this;
 		for(int i = 0 ; i < s.size() ; i++){
 			this.complementSet[s.set[i]] = 0;
 		}
 		int sizeOfComplement = maxSize-s.size();
 		int complementFinal[] = new int[sizeOfComplement];
-		for(int i = 0 ; i < sizeOfComplement ; i++){
+		int index = 0;
+		for(int i = 0 ; i < maxSize ; i++){
 			if(this.complementSet[i] != 0){
-				complementFinal[i] = complementSet[i];
+				complementFinal[index] = complementSet[i];
+				index++;
 			}
 		}
-		intSet complement = new intSet(complementFinal);
+		IntSet complement = new IntSet(complementFinal);
 		return complement;
 	}
 	/**
@@ -124,8 +126,8 @@ final class intSet {
 	 * @return true if s is a subset of the 
 	 * 		   object on which the function is called
 	 */
-	public boolean isSubset(intSet s){
-		intSet unionOfSet = union(this, s);
+	public boolean isSubset(IntSet s){
+		IntSet unionOfSet = union(this, s);
 		if(Math.max(this.size(), s.size()) != unionOfSet.size()){
 			return false;
 		}
@@ -146,14 +148,4 @@ final class intSet {
 		return true;
 	}
 	
-}
-
-public class Main {
-
-	public static void main(String[] args) {
-		int arr[] = {1,2,3,3,4};
-		intSet s = new intSet(arr);
-		System.out.println(s.size());
-	}
-
 }
