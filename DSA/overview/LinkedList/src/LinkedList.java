@@ -41,6 +41,20 @@ public class LinkedList {
 			Node tillRight = this.getHead();
 			int rValue = rotateValue;
 			int count = 1;
+			if(left == 1){
+				while (count < right){
+					tillRight = tillRight.getNext();
+					count++;
+				}
+				while(rValue > 0){
+					this.head = tillLeft.getNext();
+					Node afterRight = tillRight.getNext();
+					tillRight.setNext(tillLeft);
+					tillLeft.setNext(afterRight);
+					rValue--;
+				}
+				return;
+			}
 			while(true){
 				if(count+1 == left){
 					tillRight = tillLeft.getNext();
@@ -65,6 +79,24 @@ public class LinkedList {
 				tillLeft = tillLeft.getNext();
 				count++;
 			}
+	}
+	/**
+	 * 
+	 * @return true if loop is detect,
+	 * 		   false otherwise
+	 */
+	public boolean detectLoop(){
+		Node fastPointer = this.getHead();
+		Node slowPointer = this.getHead();
+		while(fastPointer.getNext()!=null && fastPointer.getNext().getNext() != null && 
+				slowPointer.getNext() != null){
+			fastPointer = fastPointer.getNext().getNext();
+			slowPointer = slowPointer.getNext();
+			if(fastPointer == slowPointer){
+				return true;
+			}
+		}
+		return false;
 	}
 	/**
 	 * prints the given linked list
