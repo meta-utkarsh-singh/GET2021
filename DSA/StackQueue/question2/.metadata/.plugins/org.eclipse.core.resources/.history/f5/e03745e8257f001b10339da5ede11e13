@@ -1,0 +1,14 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+
+public class TestCircularQueue {
+
+	@Test
+	public void testIsempty() {
+		CircularQueue queue = new CircularQueue();
+		assertEquals(1, queue.isEmpty());
+	}
+
+}
