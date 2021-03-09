@@ -10,18 +10,19 @@ public class SelectOrder {
 		if(rightChild < n && arr[largest] < arr[rightChild]){
 			largest = rightChild;
 		}
-		if(largest != i){
-			int swap = arr[i];
-			arr[i] = arr[largest];
-			arr[largest] = swap;
-			heapify(arr, n, largest);
+		if(largest == i){
+			return;
 		}
+		int swap = arr[i];
+		arr[i] = arr[largest];
+		arr[largest] = swap;
+		heapify(arr, n, largest);
 	}
 	private void deleteRootHeap(int arr[], int index){
 		int largeIndex = index;
 		int right = 2*index + 2;
 		int left = 2*index + 1;
-		if(right < arr.length && arr[largeIndex] < arr[right]){
+		if(right < arr.length && arr[index] < arr[right]){
 			largeIndex = right;
 		}
 		if(left < arr.length && arr[largeIndex] < arr[left]){
