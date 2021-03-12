@@ -35,7 +35,6 @@ public class LinkedList {
 				iterate = iterate.getNext();
 			}
 			iterate.setNext(node);
-			iterate.getNext().setPrev(iterate);
 		}
 	}
 	/**
@@ -46,7 +45,7 @@ public class LinkedList {
 			assert(false);
 		}
 		Node iterate = this.getHead();
-		while(iterate.getNext() != null){
+		while(iterate != null){
 			System.out.println(iterate.getEmployee().getName());
 			iterate = iterate.getNext();
 		}

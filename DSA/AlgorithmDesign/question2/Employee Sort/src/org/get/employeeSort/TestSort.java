@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import java.util.*;
+
 public class TestSort {
 
 	@Test
@@ -21,7 +23,23 @@ public class TestSort {
 		emp.insert(new Node(e5));
 		Sort sort = new Sort();
 		LinkedList actual = sort.sort(emp);
+		List<Employee> expected= new ArrayList<Employee>();
+		expected.add(e3);
+		expected.add(e1);
+		expected.add(e4);
+		expected.add(e5);
+		expected.add(e2);
+		Node iterate = actual.getHead();
+		for(int i = 0 ; i < 5 ; i++){
+			assertEquals(expected.get(i).getName(),iterate.getEmployee().getName());
+			iterate = iterate.getNext();
+		}
 		actual.viewList();
 	}
-
+	@Test
+	public void testFail(){
+		LinkedList l = new LinkedList();
+		Sort sort = new Sort();
+		assertEquals(null, sort.sort(l));
+	}
 }

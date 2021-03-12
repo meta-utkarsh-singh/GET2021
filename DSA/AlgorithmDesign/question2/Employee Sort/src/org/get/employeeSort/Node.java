@@ -3,12 +3,10 @@ package org.get.employeeSort;
 public class Node {
 	private Employee e;
 	private Node next;
-	private Node prev;
 	
 	Node(Employee e){
 		this.e = e;
 		this.next = null;
-		this.prev = null;
 	}
 	/**
 	 * 
@@ -26,23 +24,9 @@ public class Node {
 	}
 	/**
 	 * 
-	 * @return getter for previous node
-	 */
-	public Node getPrev(){
-		return this.prev;
-	}
-	/**
-	 * 
 	 * @param seeter for next
 	 */
 	public void setNext(Node node){
 		this.next = node;
-	}
-	/**
-	 * 
-	 * @param node setter for prev
-	 */
-	public void setPrev(Node node){
-		this.prev = node;
 	}
 }

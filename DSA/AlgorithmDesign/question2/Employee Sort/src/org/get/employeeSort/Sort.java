@@ -1,5 +1,4 @@
 package org.get.employeeSort;
-import org.json.*;
 public class Sort {
 	/**
 	 * 
@@ -7,111 +6,86 @@ public class Sort {
 	 * @return sorted list based on employee salary and age
 	 */
 	public LinkedList sort(LinkedList l){
+		if(l.getHead() == null){
+			System.out.println("Enter valid list");
+			return null;
+		}
 		if(l.getHead().getNext() == null){
 			return l;
 		}
-		Node i = l.getHead().getNext();
-		while(i.getNext() != null){
-			Node j = i.getPrev();
-			Node currentNode = i;
-			while(j.getPrev() != null && j.getEmployee().getSalary()
-					> currentNode.getEmployee().getSalary()){
-					j = j.getPrev();
-			}
-			if(j.getPrev() == null && j.getEmployee().getSalary()
-					< currentNode.getEmployee().getSalary()){
+		Node i = l.getHead();
+		LinkedList sorted = new LinkedList();
+		while(i != null){
+			Node newNode = new Node(new Employee(i.getEmployee()
+					.getName(),i.getEmployee().getAge(),
+					i.getEmployee().getSalary()));
+			if(sorted.getHead() == null && i == l.getHead()){
+				sorted.insert(newNode);
 				i = i.getNext();
 				continue;
 			}
-			if(j.getEmployee().getSalary() == currentNode.getEmployee().getSalary()){
-				System.out.println("J:"+j.getEmployee().getName());
-				System.out.println("I:"+i.getEmployee().getName());
-				Node temp = new Node(new Employee(i.getEmployee().getName(),
-						i.getEmployee().getAge(),i.getEmployee().getSalary()));
-				temp.setNext(i.getNext());
-				temp.setPrev(i.getPrev());
-				if(j.getEmployee().getAge() > i.getEmployee().getAge()){
-					if(j.getPrev() != null){
-						i.setPrev(j.getPrev());
-						i.setNext(j.getNext());
-						j.getNext().setPrev(i);
-						j.getPrev().setNext(i);
+			Node j = sorted.getHead();
+			while(j.getNext()!=null && j.getEmployee().getSalary() <
+					i.getEmployee().getSalary()){
+				j=j.getNext();
+			}
+			if(j.getEmployee().getSalary() == i.getEmployee().getSalary()){
+				if(j.getNext() == null){
+					if(j.getEmployee().getAge() <= i.getEmployee().getAge()){
+						j.setNext(newNode);
 					}
 					else {
-						i.setPrev(null);
-						i.setNext(j.getNext());
-						j.getNext().setPrev(i);
-						l.setHead(i);
-					}
-					if(temp.getNext() != null){
-						j.setNext(temp.getNext());
-						j.setPrev(temp.getPrev());
-						temp.getNext().setPrev(j);
-						temp.getPrev().setNext(j);
-					}
-					else{
-						j.setNext(null);
-						j.setPrev(temp.getPrev());
-						temp.getNext().setPrev(j);
-					}
-				}
-				else if(j.getEmployee().getAge() <= currentNode.getEmployee().getAge()){
-					System.out.println("J1:"+j.getEmployee().getName());
-					System.out.println("I1:"+i.getEmployee().getName());
-					j = j.getNext();
-					if(j.getPrev() != null){
-						i.setPrev(j.getPrev());
-						i.setNext(j.getNext());
-						j.getNext().setPrev(i);
-						j.getPrev().setNext(i);
-					}
-					else {
-						i.setPrev(null);
-						i.setNext(j.getNext());
-						j.getNext().setPrev(i);
-					}
-					if(temp.getNext() != null){
-						j.setNext(temp.getNext());
-						j.setPrev(temp.getPrev());
-						temp.getPrev().setNext(j);
-						temp.getNext().setPrev(j);
-					}
-					else{
-						j.setNext(null);
-						j.setPrev(temp.getPrev());
-						temp.getPrev().setNext(j);
+						Node k = sorted.getHead();
+						while(k.getNext()!=j && k.getNext()!=null){
+							k = k.getNext();
+						}
+						if(k == sorted.getHead()){
+							newNode.setNext(k);
+							sorted.setHead(newNode);
+						}
+						else{
+							newNode.setNext(k.getNext());
+							k.setNext(newNode);
+						}
 					}
 				}
 				else {
-					if(j.getPrev() == null){
-						i.setPrev(null);
-						i.setNext(j.getNext());
-						j.getNext().setPrev(i);
-						l.setHead(i);
+					if(j.getEmployee().getAge() <= i.getEmployee().getAge()){
+						newNode.setNext(j.getNext());
+						j.setNext(newNode);
 					}
 					else {
-						j = j.getNext();
-						i.setPrev(j.getPrev());
-						i.setNext(j.getNext());
-						j.getNext().setPrev(i);
-						j.getPrev().setNext(i);
-					}
-					if(temp.getNext() != null){
-						j.setNext(temp.getNext());
-						j.setPrev(temp.getPrev());
-						temp.getNext().setPrev(j);
-						temp.getPrev().setNext(j);
-					}
-					else{
-						j.setNext(null);
-						j.setPrev(temp.getPrev());
-						temp.getNext().setPrev(j);
+						Node k = sorted.getHead();
+						if(k.getEmployee().getAge() > i.getEmployee().getAge()){
+							newNode.setNext(k);
+							sorted.setHead(newNode);
+							i=i.getNext();
+							continue;
+						}
+						while(k.getNext()!=j && k.getNext()!=null){
+							k = k.getNext();
+						}
+						newNode.setNext(k.getNext());
+						k.setNext(newNode);
 					}
 				}
 			}
-			i = j.getNext();
+			else if(j.getNext() == null && j.getEmployee().getSalary() <
+					i.getEmployee().getSalary()){
+				j.setNext(newNode);
+			}
+			else if(j.getEmployee().getSalary() >
+					i.getEmployee().getSalary()) {
+				Node k = sorted.getHead();
+				while(k.getNext() != j && k.getNext()!=null){
+					k = k.getNext();
+				}
+				newNode.setNext(k.getNext());
+				k.setNext(newNode);
+			}
+			i = i.getNext();
 		}
-		return l;
+		return sorted;
 	}
 	
 }
