@@ -1,0 +1,13 @@
+package com.get.zoomanagement;
+import java.util.*;
+
+public class Zoo {
+	private int maxZonesMammal = 5;
+	private int maxZonesBird = 3;
+	private int maxZonesReptile = 4;
+	List<Zone> zoneInZoo = new ArrayList<Zone>();
+	
+	public void addZone(Zone z){
+		
+	}
+}

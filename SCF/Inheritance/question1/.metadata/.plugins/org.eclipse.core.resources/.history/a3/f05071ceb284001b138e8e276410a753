@@ -1,0 +1,13 @@
+package com.get.zoomanagement;
+
+public class Zone {
+	private int cageLimit;
+	private int zoneId;
+	private String supportedType;
+	
+	Zone(int cageLimit, int zoneId, String supportedType){
+		this.cageLimit = cageLimit;
+		this.zoneId = zoneId;
+		this.supportedType = supportedType;
+	}
+}

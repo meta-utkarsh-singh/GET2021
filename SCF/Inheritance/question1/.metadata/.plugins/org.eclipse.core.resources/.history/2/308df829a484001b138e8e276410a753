@@ -1,0 +1,12 @@
+package com.get.zoomanagement;
+
+public interface Animal {
+	String animalBreed = new String();
+	String animalType = new String();
+	int id  = 0;
+	/**
+	 * 
+	 * @return sound made by a animal
+	 */
+	String getSound();
+}

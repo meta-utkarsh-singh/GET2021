@@ -1,0 +1,26 @@
+package com.get.zoomanagement;
+import java.util.*;
+public class Cage {
+	private int maxCapacity;
+	private List<String> animalSupported = new ArrayList<String>();
+	private List<Animal> animalInCage = new ArrayList<Animal>();
+	
+	Cage(int maxCapacity, List<String> animalSupported) {
+		this.maxCapacity = maxCapacity;
+		this.animalSupported = animalSupported;
+	}
+	/**
+	 * 
+	 * @param a animal to be added
+	 * @return 1 if added successfully
+	 * 		   -1 otherwise
+	 */
+	public int addAnimal(Animal a){
+		if(!animalSupported.contains(a.getBreed())){
+			return -1;
+		}
+		assert(animalInCage.size() < maxCapacity);
+		animalInCage.add(a);
+		return 1;
+	}
+}
