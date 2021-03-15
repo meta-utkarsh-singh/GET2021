@@ -1,15 +1,15 @@
 package com.get.zoomanagement;
 
-public class Snake extends Reptile {
+public class Sparrow extends Bird {
 	private String animalBreed;
 	
-	Snake(String name, int age, int weight, String animalBreed){
+	Sparrow(String name, int age, int weight, String animalBreed){
 		super(name,age,weight);
-		this.animalBreed = "Snake";
+		this.animalBreed = "Sparrow";
 	}
 	@Override
 	public String getSound(){
-		return "Hiss";
+		return "Chirp";
 	}
 	@Override
 	public boolean canFly(){

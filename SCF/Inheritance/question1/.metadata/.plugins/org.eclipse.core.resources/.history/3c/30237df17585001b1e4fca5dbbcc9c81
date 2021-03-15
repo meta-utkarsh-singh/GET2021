@@ -5,11 +5,11 @@ public class Snake extends Reptile {
 	
 	Snake(String name, int age, int weight, String animalBreed){
 		super(name,age,weight);
-		this.animalBreed = "Snake";
+		this.animalBreed = "Sparrow";
 	}
 	@Override
 	public String getSound(){
-		return "Hiss";
+		return "Chirp";
 	}
 	@Override
 	public boolean canFly(){

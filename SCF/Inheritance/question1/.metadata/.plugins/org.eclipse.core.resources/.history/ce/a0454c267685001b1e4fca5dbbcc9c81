@@ -30,8 +30,7 @@ public class Zoo {
 			if(zoneInZoo.get(i).getSupportedType() == a.getCategory()){
 				for(int j = 0 ; j < zoneInZoo.get(i).getCageInZone().size() ; j++){
 					if(zoneInZoo.get(i).getCageInZone().get(j).getAnimalSupported() == a.getBreed()
-							&& zoneInZoo.get(i).getCageInZone().get(j).getAnimalInCage().size()
-								< zoneInZoo.get(i).getCageInZone().
+							&& zoneInZoo.get(i).getCageInZone().size() < zoneInZoo.get(i).getCageInZone().
 							get(j).getMaxCapacity()){
 						zoneInZoo.get(i).getCageInZone().get(j).addAnimal(a);
 						return 1;

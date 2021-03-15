@@ -13,7 +13,7 @@ public class Sparrow extends Bird {
 	}
 	@Override
 	public boolean canFly(){
-		return false;
+		return true;
 	}
 	/**
 	 * 

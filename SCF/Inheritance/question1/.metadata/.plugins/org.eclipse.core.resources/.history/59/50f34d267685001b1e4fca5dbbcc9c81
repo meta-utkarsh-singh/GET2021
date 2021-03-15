@@ -5,7 +5,7 @@ public abstract class Reptile extends Animal {
 	
 	Reptile(String name, int age, int weight){
 		super(name,age,weight);
-		this.animalType = "Reptile";
+		this.animalType = "Mammal";
 	}
 	/**
 	 * 
