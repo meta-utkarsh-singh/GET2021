@@ -1,0 +1,16 @@
+package com.get.zoomanagement;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class TestZoo {
+
+	@Test
+	public void test() {
+		Zone z1 = new Zone(1,1,"Mammal",true);
+		Zone z2 = new Zone(1,2,"Bird",true);
+		Zone z3 = new Zone(1,3,"Reptile",true);
+	}
+
+}
