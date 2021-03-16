@@ -1,0 +1,14 @@
+
+public class Quadruple {
+	private int coeff = 0;
+	private char variable;
+	private int power;
+	private char nextSymbol;
+	
+	Quadruple(int coeff, char variable, int power, char nextSymbol) {
+		this.coeff = coeff;
+		this.variable = variable;
+		this.power  = power;
+		this.nextSymbol = nextSymbol;
+	}
+}
