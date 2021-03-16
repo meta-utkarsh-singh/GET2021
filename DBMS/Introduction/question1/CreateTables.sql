@@ -1,7 +1,8 @@
 create database StoreFront;
 use StoreFront;
 create table User (User_ID varchar(25) NOT NULL PRIMARY KEY, Name varchar(25));
-create table Shopper(Shopper_ID varchar(25) references User(User_ID));
+create table Shopper(Shopper_ID varchar(25) references User(User_ID), Name varchar(25));
+create table ShopperAddress(Shopper_ID varchar(25) references Shopper(Shopper_ID), Address varchar(25));
 create table Category(Category_ID varchar(25), Name varchar(25));
 create table SubCategory (SubCat_ID varchar(25) NOT NULL PRIMARY KEY,
                           Name varchar(25), Category_ID varchar(25) references Category(Category_ID));
