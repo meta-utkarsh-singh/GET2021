@@ -16,3 +16,7 @@ create table OrderProducts (Order_ID varchar(25) NOT NULL PRIMARY KEY ,
                             Product_ID varchar(25) references Product(Prod_ID));
 create table Admin(Admin_ID varchar(25) NOT NULL PRIMARY KEY, 
                    User_ID varchar(25) references User(User_ID));
+show tables;
+drop table Product;
+create table Product (Prod_ID varchar(25) NOT NULL PRIMARY KEY,
+                      Name varchar(25), Price int);
