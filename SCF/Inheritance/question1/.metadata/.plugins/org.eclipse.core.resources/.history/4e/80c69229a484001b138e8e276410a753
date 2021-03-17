@@ -1,8 +1,0 @@
-package com.get.zoomanagement;
-
-public class Lion implements Mammals {
-	Lion(){
-		animalBreed = "Lion";
-		
-	}
-}
