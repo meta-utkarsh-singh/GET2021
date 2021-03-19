@@ -25,17 +25,10 @@ public class TestSelectOrder {
 		}
 	}
 	@Test
-	public void testFail1() {
+	public void testFail() {
 		List<Integer> testList = new ArrayList<Integer>();
 		SelectOrder so = new SelectOrder();
 		assertEquals(null, so.getOrder(testList, 1, 1));
-	}
-	@Test
-	public void testFail2() {
-		List<Integer> testList = new ArrayList<Integer>();
-		testList.add(1);
-		SelectOrder so = new SelectOrder();
-		assertEquals(null, so.getOrder(testList, 4, 1));
 	}
 
 }

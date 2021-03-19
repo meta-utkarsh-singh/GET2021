@@ -19,10 +19,10 @@ public class SelectOrder {
 		List<Integer> ansArr = new ArrayList<Integer>();
 		ansArr.add(arr.get(i));
 		while(sum < noOfBallsFace){
-			i++;
 			if(sum < noOfBallsFace && i >= arr.size()){
 				return null;
 			}
+			i++;
 			ansArr.add(arr.get(i));
 			sum = sum + arr.get(i);
 		}

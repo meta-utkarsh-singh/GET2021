@@ -9,9 +9,6 @@ public class SelectOrder {
 	 * @return list of order in which the bowlers bowl
 	 */
 	public List<Integer> getOrder(List<Integer> arr, int noOfBallsFace, int noOfBallers){
-		if(arr.size() == 0){
-			return null;
-		}
 		Collections.sort(arr);
 		Collections.reverse(arr);
 		int i = 0;
@@ -19,10 +16,10 @@ public class SelectOrder {
 		List<Integer> ansArr = new ArrayList<Integer>();
 		ansArr.add(arr.get(i));
 		while(sum < noOfBallsFace){
-			i++;
 			if(sum < noOfBallsFace && i >= arr.size()){
 				return null;
 			}
+			i++;
 			ansArr.add(arr.get(i));
 			sum = sum + arr.get(i);
 		}
