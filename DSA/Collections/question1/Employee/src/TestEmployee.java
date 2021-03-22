@@ -9,7 +9,8 @@ public class TestEmployee {
 	public void testAdd() {
 		Employee e1 = new Employee(1,"abc", "def");
 		EmpCollection ec = new EmpCollection();
-		assertEquals(true,ec.add(e1));
+		ec.add(e1);
+		assertEquals(1,ec.size());
 	}
 	@Test
 	public void testAddFail() {
