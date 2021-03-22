@@ -9,12 +9,8 @@ public class TestStringProcessor {
 	public void testGetUniqueElement() {
 		String s = "hello byee";
 		StringProcessor sp = new StringProcessor();
-		List<Character> actual = sp.getUniqueElement(s);
-		assertEquals(true,actual.contains('h'));
-		assertEquals(true,actual.contains('o'));
-		assertEquals(true,actual.contains('b'));
-		assertEquals(true,actual.contains('y'));
-		assertEquals(false,actual.contains('e'));
+		int value = sp.getUniqueElement(s);
+		assertEquals(7,value);
 	}
 
 }

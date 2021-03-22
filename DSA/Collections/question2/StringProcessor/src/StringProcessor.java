@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class StringProcessor {
-	private Map<String, List<Character>> cache = new HashMap<String, List<Character>>();
+	private Map<String, Integer> cache = new HashMap<String, Integer>();
 	
 	/**
 	 * 
@@ -16,23 +16,12 @@ public class StringProcessor {
 			return cache.get(s);
 		}
 		List<Character> unique = new ArrayList<Character>();
-		Map<Character, Integer> checkUnique = new HashMap<Character, Integer>();
 		for(int i = 0 ; i < s.length() ; i++){
-			if(s.charAt(i) == ' '){
-				continue;
-			}
-			if(checkUnique.get(s.charAt(i)) == null){
-				checkUnique.put(s.charAt(i), 1);
-				continue;
-			}
-			checkUnique.replace(s.charAt(i), checkUnique.get(s.charAt(i))+1);
-		}
-		for(Map.Entry<Character, Integer> it : checkUnique.entrySet()){
-			if(it.getValue() == 1){
-				unique.add(it.getKey());
+			if(!unique.contains(s.charAt(i))){
+				unique.add(s.charAt(i));
 			}
 		}
-		cache.put(s, unique);
-		return unique;
+		cache.put(s, unique.size());
+		return unique.size();
 	}
 }
