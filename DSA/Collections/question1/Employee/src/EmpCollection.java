@@ -1,33 +1,26 @@
 import java.util.*;	
 
 public class EmpCollection {
-	private List<Employee> empList = new ArrayList<Employee>();
+	private Set<Employee> empList;
 	private List<Employee> sorted = new ArrayList<Employee>();
+	EmpCollection(){
+		empList = new HashSet<Employee>();
+	}
 	/**
-	 * 
 	 * @param e employee to be added
-	 * @return return success message if a new employee is added,
-	 * 		   returns failure message otherwise
+	 * @return true if employee added successfully
+	 * 		   false otherwise
 	 */
-	public String add(Employee e){
-		if(e==null){
-			return "enter valid value";
-		}
-		for(int i = 0 ; i < empList.size() ; i++){
-			if(this.empList.get(i).getEmpId() == e.getEmpId()){
-				return "Failed";
-			}
-		}
+	public boolean add(Employee e){
 		empList.add(e);
-		return "Success";
 	}
 	/**
 	 * 
 	 * @return list of employee sorted by id
 	 */
-	public List<Employee> sortNatural(){
-		for(int i = 0 ; i < empList.size() ; i++) {
-			sorted.add(empList.get(i));
+	public Set<Employee> sortNatural(){
+		for(Employee e : this.empList) {
+			sorted.add(e);
 		}
 		Collections.sort(sorted, new SortById());
 		return sorted;
@@ -38,8 +31,8 @@ public class EmpCollection {
 	 */
 	public List<Employee> sortByName(){
 		sorted.clear();
-		for(int i = 0 ; i < empList.size() ; i++) {
-			sorted.add(empList.get(i));
+		for(Employee e : this.empList) {
+			sorted.add(e);
 		}
 		Collections.sort(sorted, new SortByName());
 		return sorted;

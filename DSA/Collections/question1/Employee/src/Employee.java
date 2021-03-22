@@ -9,6 +9,21 @@ public class Employee {
 		this.name = name;
 		this.address = address;
 	}
+	@Override
+	public boolean equals(Object obj) {
+		if(this == obj){
+			return true;
+		}
+		if(obj == null || obj.getClass()!=this.getClass()){
+			return false;
+		}
+		Employee emp = (Employee) obj;
+		return emp.getEmpId() == this.getEmpId();
+	}
+	@Override 
+	public int hashcode(){
+		return this.getEmpId();
+	}
 	/**
 	 * 
 	 * @return getter for empId

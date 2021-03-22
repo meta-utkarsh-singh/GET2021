@@ -9,7 +9,7 @@ public class TestEmployee {
 	public void testAdd() {
 		Employee e1 = new Employee(1,"abc", "def");
 		EmpCollection ec = new EmpCollection();
-		assertEquals("Success",ec.add(e1));
+		assertEquals(true,ec.add(e1));
 	}
 	@Test
 	public void testAddFail() {
@@ -17,7 +17,7 @@ public class TestEmployee {
 		Employee e2 = new Employee(1,"abc", "def");
 		EmpCollection ec = new EmpCollection();
 		ec.add(e1);
-		assertEquals("Failed",ec.add(e2));
+		assertEquals(1,ec.add(e2).size());
 	}
 	@Test
 	public void testSortNatural() {
