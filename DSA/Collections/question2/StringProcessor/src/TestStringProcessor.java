@@ -10,7 +10,7 @@ public class TestStringProcessor {
 		String s = "hello byee";
 		StringProcessor sp = new StringProcessor();
 		int value = sp.getUniqueElement(s);
-		assertEquals(7,value);
+		assertEquals(6,value);
 	}
 
 }
