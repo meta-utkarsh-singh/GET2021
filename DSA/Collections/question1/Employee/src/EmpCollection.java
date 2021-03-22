@@ -7,6 +7,12 @@ public class EmpCollection {
 		empList = new HashSet<Employee>();
 	}
 	/**
+	* @return size of EmpCollection
+	*/
+	public int size(){
+		return this.empList.size();
+	}
+	/**
 	 * @param e employee to be added
 	 */
 	public void add(Employee e){
