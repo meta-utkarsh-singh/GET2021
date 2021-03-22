@@ -8,10 +8,8 @@ public class EmpCollection {
 	}
 	/**
 	 * @param e employee to be added
-	 * @return true if employee added successfully
-	 * 		   false otherwise
 	 */
-	public boolean add(Employee e){
+	public void add(Employee e){
 		empList.add(e);
 	}
 	/**
