@@ -14,7 +14,7 @@ public class BSTDictionary implements Dictionary {
 			for(int i = 0 ; i < arr.length() ; i++){
 				String key = arr.getJSONObject(i).getString("key");
 				String value = arr.getJSONObject(i).getString("value");
-				this.add(key, value);
+				this.add(key, value, root);
 			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -28,12 +28,6 @@ public class BSTDictionary implements Dictionary {
 	public Node getRoot(){
 		return this.root;
 	}
-	/**
-	 * 
-	 * @param key key for value to be inserted
-	 * @param value value to be inserted
-	 * @param root root of given BST
-	 */
 	private void addUtil(String key, String value, Node root) {
 		if(this.getRoot() == null) {
 			Node newNode = new Node(key,value);

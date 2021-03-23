@@ -14,7 +14,7 @@ public class BSTDictionary implements Dictionary {
 			for(int i = 0 ; i < arr.length() ; i++){
 				String key = arr.getJSONObject(i).getString("key");
 				String value = arr.getJSONObject(i).getString("value");
-				this.add(key, value);
+				this.add(key, value, root);
 			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -28,13 +28,8 @@ public class BSTDictionary implements Dictionary {
 	public Node getRoot(){
 		return this.root;
 	}
-	/**
-	 * 
-	 * @param key key for value to be inserted
-	 * @param value value to be inserted
-	 * @param root root of given BST
-	 */
-	private void addUtil(String key, String value, Node root) {
+	@Override
+	public void add(String key, String value, Node root) {
 		if(this.getRoot() == null) {
 			Node newNode = new Node(key,value);
 			this.root = newNode;
@@ -55,15 +50,11 @@ public class BSTDictionary implements Dictionary {
 			return;
 		}
 		if(root.getKey().compareTo(key) < 0){
-			addUtil(key, value, root.getRight());
+			add(key, value, root.getRight());
 		}
 		if(root.getKey().compareTo(key) > 0){
-			addUtil(key, value, root.getLeft());
+			add(key, value, root.getLeft());
 		}
-	}
-	@Override
-	public void add(String key, String value) {
-			addUtil(key,value,this.getRoot());
 	}
 	/**
 	 * 
@@ -132,48 +123,31 @@ public class BSTDictionary implements Dictionary {
 	public String getValue(String key) {
 		return getValueUtil(key, this.getRoot());
 	}
-	/**
-	 * 
-	 * @param root root of given BST
-	 * @param listOfKeyValue List that contains sorted order of key values
-	 */
-	private void getSortedUtil(Node root, List<Node>listOfKeyValue) {
+	public void getSortedUtil(Node root, List<Node>listOfKeyValue) {
 		if(root == null){
 			return;
 		}
-		getSortedUtil(root.getLeft(),listOfKeyValue);
+		getSorted(root.getLeft(),listOfKeyValue);
 		listOfKeyValue.add(root);
-		getSortedUtil(root.getRight(), listOfKeyValue);
+		getSorted(root.getRight(), listOfKeyValue);
 	}
 	@Override
-	public List<Node> getSorted() {
+	public List<Node> getSorted(Node root) {
 		List<Node> listOfKeyValue = new ArrayList<Node>();
-		getSortedUtil(this.getRoot(), listOfKeyValue);
-		return listOfKeyValue;
+		getSortedUtil(this.getRoot())
 	}
-	/**
-	 * 
-	 * @param k1 lower bound for key
-	 * @param k2 upper bound for key
-	 * @param root root of given BST
-	 * @param sortedList list that stores sorted nodes
-	 */
-	private void getSortedBetweenUtil(String k1, String k2, Node root, List<Node> sortedList) {
+
+	@Override
+	public void getSortedBetween(String k1, String k2, Node root, List<Node> sortedList) {
 		if(root == null){
 			return;
 		}
-		getSortedBetweenUtil(k1, k2, root.getLeft(), sortedList);
+		getSortedBetween(k1, k2, root.getLeft(), sortedList);
 		if(root.getKey().compareTo(k1) >= 0 && root.getKey().compareTo(k2) <= 0){
 			
 			sortedList.add(root);
 		}
-		getSortedBetweenUtil(k1, k2, root.getRight(), sortedList);
-	}
-	@Override
-	public List<Node> getSortedBetween(String k1, String k2) {
-		List<Node> sortedList = new ArrayList<Node>();
-		getSortedBetweenUtil(k1,k2,this.getRoot(), sortedList);
-		return sortedList;
+		getSortedBetween(k1, k2, root.getRight(), sortedList);
 	}
 	
 }

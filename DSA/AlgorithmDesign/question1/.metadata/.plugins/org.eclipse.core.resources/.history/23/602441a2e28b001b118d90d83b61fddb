@@ -28,12 +28,6 @@ public class BSTDictionary implements Dictionary {
 	public Node getRoot(){
 		return this.root;
 	}
-	/**
-	 * 
-	 * @param key key for value to be inserted
-	 * @param value value to be inserted
-	 * @param root root of given BST
-	 */
 	private void addUtil(String key, String value, Node root) {
 		if(this.getRoot() == null) {
 			Node newNode = new Node(key,value);

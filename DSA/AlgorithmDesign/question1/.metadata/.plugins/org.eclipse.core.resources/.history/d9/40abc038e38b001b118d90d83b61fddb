@@ -57,9 +57,9 @@ public class TestBSTDictionary {
 	public void testDelete() {
 		String input = "{\"values\":[{\"key\" : \"1\", \"value\" : \"abcd\"},{\"key\" : \"2\", \"value\" : \"lmno\"}]}";
 		BSTDictionary d = new BSTDictionary(input);
-		d.add("0","xyz");
-		d.add("3","kkk");
-		d.delete("1");
+		d.add("0","xyz",d.getRoot());
+		d.add("3","kkk",d.getRoot());
+		d.delete("1", d.getRoot());
 		assertEquals("lmno",d.getRoot().getValue());
 	}
 }

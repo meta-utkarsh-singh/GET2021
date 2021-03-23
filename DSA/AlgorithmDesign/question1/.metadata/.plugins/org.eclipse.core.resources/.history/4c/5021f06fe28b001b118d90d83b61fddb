@@ -7,7 +7,7 @@ public interface Dictionary {
 	 * @param key key for key value pair to be added
 	 * @param value value for key value pair to be added
 	 */
-	void add(String key, String value);
+	void add(String key, String value, Node root);
 	/**
 	 * 
 	 * @param key key for key value pair to be deleted
@@ -30,5 +30,5 @@ public interface Dictionary {
 	 * @param k2 upper bound for key
 	 * @return list of sorted key value pair between k1 and k2
 	 */
-	List<Node> getSortedBetween(String k1, String k2);
+	void getSortedBetween(String k1, String k2, Node root, List<Node> sortedList);
 }

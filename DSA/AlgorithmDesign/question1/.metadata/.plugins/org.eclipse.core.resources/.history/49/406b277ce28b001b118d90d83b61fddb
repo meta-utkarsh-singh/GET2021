@@ -7,7 +7,7 @@ public interface Dictionary {
 	 * @param key key for key value pair to be added
 	 * @param value value for key value pair to be added
 	 */
-	void add(String key, String value);
+	void add(String key, String value, Node root);
 	/**
 	 * 
 	 * @param key key for key value pair to be deleted
