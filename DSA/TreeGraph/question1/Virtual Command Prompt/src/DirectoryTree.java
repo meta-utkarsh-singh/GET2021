@@ -9,6 +9,13 @@ public class DirectoryTree {
 	}
 	/**
 	 * 
+	 * @return getter for currNode
+	 */
+	public Node getCurrNode() {
+		return this.currNode;
+	}
+	/**
+	 * 
 	 * @param name name of the directory to be created
 	 */
 	public void mkdir(String name){
@@ -73,9 +80,11 @@ public class DirectoryTree {
 	 * lists directories in current directory
 	 */
 	public void ls(){
-		int i = 0;
+		int i = 0; 
 		Node iterate = currNode;
-		System.out.println(currNode.getName());
+		if(currNode.getChildSize() == 0){
+			System.out.println("Empty directory");
+		}
 		while(i < currNode.getChildSize()){
 			iterate = currNode.getChild(i);
 			System.out.println("   "+iterate.getName()+" "+iterate.getTime());
@@ -86,33 +95,74 @@ public class DirectoryTree {
 	 * 
 	 * @param root root of the current object
 	 * @param name name of directory to be found
-	 * @return true if directory is found,
-	 * 		   false otherwise.
+	 * @return Directory path if found,
+	 * 		   error message otherwise.
 	 */
-	public boolean find(Node root, String name){
-		if(root.getName().compareTo(name) == 0){
-			return true;
+	public String find(Node root, String name){
+		StringBuilder path = new StringBuilder();
+		StringBuilder tempPath = new StringBuilder();
+		Stack<Node> dfs = new Stack<Node>();
+		Stack<StringBuilder> pathDFS = new Stack<StringBuilder>();
+		dfs.push(root);
+		path.append("/root");
+		pathDFS.push(path);
+		while(!dfs.isEmpty()) {
+			if(name.compareTo("root") == 0){
+				return "/";
+			}
+			Node top = dfs.peek();
+			path = pathDFS.peek();
+			dfs.pop();
+			pathDFS.pop();
+			for(int i = 0 ; i < top.getChildSize() ; i++){
+				tempPath = path.append("/").append(top.getChild(i).getName());
+				if(top.getChild(i).getName().compareTo(name) == 0){
+					return tempPath.toString();
+				}
+				else {
+					dfs.push(top.getChild(i));
+					pathDFS.push(tempPath);
+				}
+			}
 		}
-		for(int i = 0 ; i < root.getChildSize() ; i++){
-			return find(root.getChild(i),name);
-		}
-		return false;
+		return "File not found";
 	}
 	/**
 	 * Prints directory structure
 	 */
 	public void tree(){
-		Queue<Node> bfs = new LinkedList<Node>();
-		bfs.add(this.root);
-		System.out.println(bfs.peek().getName());
-		while(!bfs.isEmpty()){
-			for(int i = 0 ; i < bfs.size() ; i++){
-				for(int j = 0 ; j < bfs.peek().getChildSize() ; j++){
-					System.out.print(bfs.peek().getChild(j).getName()+" ");
-					bfs.add(bfs.peek().getChild(j));
+		String verticalL = "\u251c";
+		String verticalLine = "\u2502";
+		String smallL = "\u2514";
+		char space = ' ';
+		String spaces = Character.toString(space);
+		System.out.println(root.getName());
+		Stack<Node> dfs = new Stack<Node>();
+		Stack<String> spaceDFS = new Stack<String>();
+		spaceDFS.push(spaces);
+		dfs.push(root);
+		int rootChildVisitedCount = 0;
+		while(!dfs.isEmpty()){
+			Node top = dfs.peek();
+			String topSpace = spaceDFS.peek();
+			dfs.pop();
+			spaceDFS.pop();
+			if(top.getParent() == root) {
+				System.out.println(verticalL+top.getName());
+				rootChildVisitedCount++;
+			}
+			else if(top!=root) {
+				if(rootChildVisitedCount < this.root.getChildSize()){
+					System.out.println(verticalLine + topSpace + smallL + top.getName());
 				}
-				System.out.println();
-				bfs.poll();
+				else {
+					System.out.println(topSpace + smallL + top.getName());
+				}
+			}
+			topSpace = topSpace + space;
+			for(int i = 0 ; i < top.getChildSize() ; i++){
+				spaceDFS.push(topSpace);
+				dfs.push(top.getChild(i));
 			}
 		}
 	}
@@ -120,3 +170,4 @@ public class DirectoryTree {
 		System.exit(1);
 	}
 }
+
