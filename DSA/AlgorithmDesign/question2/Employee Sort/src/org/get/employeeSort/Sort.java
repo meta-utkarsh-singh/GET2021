@@ -25,28 +25,28 @@ public class Sort {
 				continue;
 			}
 			Node j = sorted.getHead();
-			while(j.getNext()!=null && j.getEmployee().getSalary() <
+			while(j.getNext()!=null && j.getEmployee().getSalary() >
 					i.getEmployee().getSalary()){
 				j=j.getNext();
 			}
 			if(j.getEmployee().getSalary() == i.getEmployee().getSalary()){
+				System.out.println("LinkedList:" + j.getEmployee().getName());
 				if(j.getNext() == null){
 					if(j.getEmployee().getAge() <= i.getEmployee().getAge()){
 						j.setNext(newNode);
+					}
+					else if(j.getEmployee().getAge() > i.getEmployee().getAge()
+							&& j == sorted.getHead()){
+						newNode.setNext(j);
+						sorted.setHead(newNode);
 					}
 					else {
 						Node k = sorted.getHead();
 						while(k.getNext()!=j && k.getNext()!=null){
 							k = k.getNext();
 						}
-						if(k == sorted.getHead()){
-							newNode.setNext(k);
-							sorted.setHead(newNode);
-						}
-						else{
-							newNode.setNext(k.getNext());
-							k.setNext(newNode);
-						}
+						newNode.setNext(k.getNext());
+						k.setNext(newNode);
 					}
 				}
 				else {
@@ -70,15 +70,21 @@ public class Sort {
 					}
 				}
 			}
-			else if(j.getNext() == null && j.getEmployee().getSalary() <
+			else if(j.getNext() == null && j.getEmployee().getSalary() >
 					i.getEmployee().getSalary()){
 				j.setNext(newNode);
 			}
-			else if(j.getEmployee().getSalary() >
+			else if(j.getEmployee().getSalary() <
 					i.getEmployee().getSalary()) {
 				Node k = sorted.getHead();
 				while(k.getNext() != j && k.getNext()!=null){
 					k = k.getNext();
+				}
+				if(k == sorted.getHead() && sorted.getHead().getNext() == null){
+					newNode.setNext(k);
+					sorted.setHead(newNode);
+					i=i.getNext();
+					continue;
 				}
 				newNode.setNext(k.getNext());
 				k.setNext(newNode);

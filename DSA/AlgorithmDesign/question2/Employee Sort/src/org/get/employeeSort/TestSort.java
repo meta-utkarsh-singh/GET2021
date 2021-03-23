@@ -24,12 +24,13 @@ public class TestSort {
 		Sort sort = new Sort();
 		LinkedList actual = sort.sort(emp);
 		List<Employee> expected= new ArrayList<Employee>();
+		expected.add(e2);
+		expected.add(e5);
+		expected.add(e4);
 		expected.add(e3);
 		expected.add(e1);
-		expected.add(e4);
-		expected.add(e5);
-		expected.add(e2);
 		Node iterate = actual.getHead();
+		actual.viewList();
 		for(int i = 0 ; i < 5 ; i++){
 			assertEquals(expected.get(i).getName(),iterate.getEmployee().getName());
 			iterate = iterate.getNext();

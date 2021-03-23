@@ -1,0 +1,1 @@
+INDEX VERSION 1.127+C:\Users\utkarsh.singh_metacu\Desktop\GET2021\GET2021\DSA\Collections\question1\.metadata\.plugins\org.eclipse.jdt.core
