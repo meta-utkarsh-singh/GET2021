@@ -8,7 +8,7 @@ public class StringProcessor {
 	 * @param s string whose unique characters need to be retrieved
 	 * @return list consisting of unique characters
 	 */
-	public List<Character> getUniqueElement(String s){
+	public int getUniqueElement(String s){
 		if(s.length() == 0){
 			assert(false);
 		}
