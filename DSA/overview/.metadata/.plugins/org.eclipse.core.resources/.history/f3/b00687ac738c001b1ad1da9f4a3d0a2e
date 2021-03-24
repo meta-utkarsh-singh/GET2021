@@ -48,7 +48,7 @@ public class LinkedList {
 	 */
 	public void rotate(int left, int right, int rotateValue){
 			assert(left < right);
-			assert(left < this.getSize());
+			assert(left< this.getSize());
 			assert(right < this.getSize());
 			if(left == right){
 				return;

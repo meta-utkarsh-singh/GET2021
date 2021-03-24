@@ -11,19 +11,6 @@ public class LinkedList {
 	}
 	/**
 	 * 
-	 * @return present size of linked list
-	 */
-	public int getSize() {
-		Node tempHead = this.getHead();
-		int size = 0;
-		while(tempHead!=null) {
-			size++;
-			tempHead = tempHead.getNext();
-		}
-		return size;
-	}
-	/**
-	 * 
 	 * @param value value of node to be inserted in linked list
 	 */
 	public void insert(int value){
@@ -47,9 +34,6 @@ public class LinkedList {
 	 * @param rotateValue number of times rotation needs to be performed
 	 */
 	public void rotate(int left, int right, int rotateValue){
-			assert(left < right);
-			assert(left < this.getSize());
-			assert(right < this.getSize());
 			if(left == right){
 				return;
 			}
@@ -63,11 +47,10 @@ public class LinkedList {
 					count++;
 				}
 				while(rValue > 0){
+					this.head = tillLeft.getNext();
 					Node afterRight = tillRight.getNext();
 					tillRight.setNext(tillLeft);
-					this.head = tillLeft.getNext();
 					tillLeft.setNext(afterRight);
-					tillRight = tillLeft;
 					tillLeft = this.getHead();
 					rValue--;
 				}

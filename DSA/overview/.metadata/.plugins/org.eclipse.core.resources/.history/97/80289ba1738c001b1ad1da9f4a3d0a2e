@@ -48,7 +48,7 @@ public class LinkedList {
 	 */
 	public void rotate(int left, int right, int rotateValue){
 			assert(left < right);
-			assert(left < this.getSize());
+			assert(left< this.getSize());
 			assert(right < this.getSize());
 			if(left == right){
 				return;
@@ -63,11 +63,10 @@ public class LinkedList {
 					count++;
 				}
 				while(rValue > 0){
+					this.head = tillLeft.getNext();
 					Node afterRight = tillRight.getNext();
 					tillRight.setNext(tillLeft);
-					this.head = tillLeft.getNext();
 					tillLeft.setNext(afterRight);
-					tillRight = tillLeft;
 					tillLeft = this.getHead();
 					rValue--;
 				}
