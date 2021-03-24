@@ -7,23 +7,20 @@ public class TestSelectOrder {
 
 	@Test
 	public void test() {
-		int noOfBalls = 6;
+		int noOfBalls = 15;
 		int arr[] = {5, 7, 3, 4, 8, 6, 1};
+		int expected[] = {8, 7};
 		List<Integer> testList = new ArrayList<Integer>();
 		List<Integer> expectedList = new ArrayList<Integer>();
-		for(int i = 0 ; i < arr.length ; i++){
+		for(int i = 0 ; i < arr.length ; i++) {
 			testList.add(arr[i]);
+			if(i < expected.length)
+				expectedList.add(expected[i]);
 		}
-		expectedList.add(5);
-		expectedList.add(5);
-		expectedList.add(2);
-		expectedList.add(2);
-		expectedList.add(5);
-		expectedList.add(6);
 		int noOfBallers = arr.length;
 		SelectOrder so = new SelectOrder();
 		List<Integer> ansArr = so.getOrder(testList, noOfBalls, noOfBallers);
-		for(int i = 0 ; i < 6 ; i++){
+		for(int i = 0 ; i < 2 ; i++){
 			assertEquals(expectedList.get(i), ansArr.get(i));
 		}
 	}

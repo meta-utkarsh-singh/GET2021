@@ -48,13 +48,6 @@ public class SelectOrder {
 		if(arr.size() == 0){
 			return null;
 		}
-		int sumOfTotalBalls = 0;
-		for(int i = 0 ; i < arr.size() ; i++){
-			sumOfTotalBalls += arr.get(i);
-		}
-		if(sumOfTotalBalls < noOfBallsFace) {
-			return null;
-		}
 		Pair[] bowlers = new Pair[arr.size()];
 		List<Integer> ansArr = new ArrayList<Integer>();
 		int totalBallsFaced = 0;

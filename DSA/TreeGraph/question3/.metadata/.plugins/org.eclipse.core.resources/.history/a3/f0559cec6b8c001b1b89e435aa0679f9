@@ -1,12 +1,6 @@
-import java.util.*; 
+import java.util.*;
 public class SelectOrder {
-	/**
-	 * 
-	 * @param arr array for which heapify function needs to be performed
-	 * @param size size of array
-	 * @param index index of leaf node
-	 */
-	private void heapify(Pair[] arr, int size, int index) {
+	void heapify(Pair[] arr, int size, int index) {
 		int largestIndex = index;
 		int leftChild = 2*index + 1;
 		int rightChild = 2*index + 2;
@@ -23,18 +17,8 @@ public class SelectOrder {
 			Pair swap = arr[index];
 			arr[index] = arr[largestIndex];
 			arr[largestIndex] = swap;
-			heapify(arr,size,largestIndex);
 		}
-	}
-	/**
-	 * 
-	 * @param arr array for which heap needs to be built
-	 */
-	private void buildHeap(Pair arr[]) {
-		int index = (arr.length)/2 - 1;
-		for(int i = index ; i >= 0 ; i--){
-			heapify(arr,arr.length, i);
-		}
+		heapify(arr,size,largestIndex);
 	}
 	/**
 	 * 
@@ -45,30 +29,20 @@ public class SelectOrder {
 	 * @return list of order in which the bowlers bowl
 	 */
 	public List<Integer> getOrder(List<Integer> arr, int noOfBallsFace, int noOfBallers){
-		if(arr.size() == 0){
-			return null;
-		}
-		int sumOfTotalBalls = 0;
-		for(int i = 0 ; i < arr.size() ; i++){
-			sumOfTotalBalls += arr.get(i);
-		}
-		if(sumOfTotalBalls < noOfBallsFace) {
-			return null;
-		}
 		Pair[] bowlers = new Pair[arr.size()];
 		List<Integer> ansArr = new ArrayList<Integer>();
 		int totalBallsFaced = 0;
 		for(int i = 0 ; i < arr.size() ; i++) {
 			bowlers[i] = new Pair(i+1, arr.get(i));
 		}
-		buildHeap(bowlers);
+		int leafIndex = (arr.size())/2 - 1;
+		heapify(bowlers, arr.size(), leafIndex);
 		while(totalBallsFaced < noOfBallsFace){
 			totalBallsFaced++;
 			ansArr.add(bowlers[0].getBowlerNo());
-			bowlers[0].set(bowlers[0].getNoOfBalls()-1);
-			buildHeap(bowlers);
+			heapify(bowlers, arr.size(), leafIndex);
 			
 		}
-		return ansArr;
+		return null;
 	}
 }
