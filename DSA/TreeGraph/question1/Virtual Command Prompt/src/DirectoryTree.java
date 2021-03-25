@@ -84,7 +84,9 @@ public class DirectoryTree {
 		Node iterate = currNode;
 		if(currNode.getChildSize() == 0){
 			System.out.println("Empty directory");
+			return;
 		}
+		System.out.println(iterate.getChildSize()+" directories found");
 		while(i < currNode.getChildSize()){
 			iterate = currNode.getChild(i);
 			System.out.println("   "+iterate.getName()+" "+iterate.getTime());
@@ -99,23 +101,25 @@ public class DirectoryTree {
 	 * 		   error message otherwise.
 	 */
 	public String find(Node root, String name){
-		StringBuilder path = new StringBuilder();
-		StringBuilder tempPath = new StringBuilder();
+		String path = new String();
+		String tempPath = new String();
 		Stack<Node> dfs = new Stack<Node>();
-		Stack<StringBuilder> pathDFS = new Stack<StringBuilder>();
+		Stack<String> pathDFS = new Stack<String>();
 		dfs.push(root);
-		path.append("/root");
+		path=path+"/root";
 		pathDFS.push(path);
 		while(!dfs.isEmpty()) {
 			if(name.compareTo("root") == 0){
-				return "/";
+				return pathDFS.peek().toString();
 			}
 			Node top = dfs.peek();
 			path = pathDFS.peek();
+			String pathCurr = path;
 			dfs.pop();
 			pathDFS.pop();
 			for(int i = 0 ; i < top.getChildSize() ; i++){
-				tempPath = path.append("/").append(top.getChild(i).getName());
+				tempPath = pathCurr+("/")+(top.getChild(i).getName());
+				pathCurr = path;
 				if(top.getChild(i).getName().compareTo(name) == 0){
 					return tempPath.toString();
 				}
