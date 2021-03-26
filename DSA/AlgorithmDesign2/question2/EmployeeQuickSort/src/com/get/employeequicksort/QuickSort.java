@@ -52,4 +52,5 @@ public class QuickSort {
 	}
 	public void sortUtil() {
 		sort(this.getHead(),this.getTail());
+	}
 }
