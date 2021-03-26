@@ -20,7 +20,7 @@ public class TestSort {
 		emp.insert(new Node(e4));
 		emp.insert(new Node(e5));
 		QuickSort sort = new QuickSort();
-		sort.sort(emp.getHead(), emp.getTail());
+		sort.sortUtil(emp);
 		String expected[] = {"def","kkk","xyz","lmn","abc"};
 		Node empItr = emp.getHead();
 		for(int i = 0 ; i < expected.length ; i++){
