@@ -50,7 +50,7 @@ public class QuickSort {
 			sort(pivot.getNext().getNext(), end);
 		}
 	}
-	public void sortUtil() {
-		sort(this.getHead(),this.getTail());
+	public void sortUtil(LinkedList emp) {
+		sort(emp.getHead(),emp.getTail());
 	}
 }
