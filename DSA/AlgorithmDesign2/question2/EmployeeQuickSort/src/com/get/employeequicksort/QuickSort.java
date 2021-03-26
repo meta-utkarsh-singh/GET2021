@@ -35,7 +35,7 @@ public class QuickSort {
 	 * @param start start element for current partition
 	 * @param end end element for current partition
 	 */
-	public void sort(Node start, Node end) {
+	private void sort(Node start, Node end) {
 		if(start == null || end == null || start == end){
 			return;
 		}
