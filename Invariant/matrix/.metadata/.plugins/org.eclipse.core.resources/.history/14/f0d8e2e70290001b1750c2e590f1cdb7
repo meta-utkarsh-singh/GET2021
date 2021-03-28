@@ -25,46 +25,19 @@ public class SparseMatrix {
 		this.dimension = dimension;
 	}
 	/**
-	 * helper method to convert a matrix with zeroes to a list without zeroes
-	 * @param matrix matrix to be converted to list
-	 * @param dimension dimension of matrix
-	 * @return sparse matrix list representation of matrix
-	 */
-	private List<List<Pair>> convertToListRepresentation(int matrix[][], int dimension) {
-		List<List<Pair>> matrixConvert = new ArrayList<List<Pair>>();
-		for(int i = 0; i < dimension ; i++) {
-			List<Pair> colValue = new ArrayList<Pair>();
-			for(int  j = 0 ; j < dimension ; j++) {
-				if(matrix[i][j]!=0) {
-					colValue.add(new Pair(j,matrix[i][j]));
-				}
-			}
-			matrixConvert.add(i, colValue);
-		}
-		return matrixConvert;
-	}
-	/**
 	 * 
 	 * @return getter for matrix
 	 */
 	public List<List<Pair>> getMatrix(){
-		List<List<Pair>> sparseMatrix = new ArrayList<List<Pair>>();
-		for(int i = 0 ; i < this.matrix.size() ; i++){
-			List<Pair> col = new ArrayList<Pair>();
-			for(int j = 0 ; j < this.matrix.get(i).size() ; j++) {
-				col.add(this.matrix.get(i).get(j));
-			}
-			sparseMatrix.add(i,col);
-		}
-		return sparseMatrix;
+		return this.matrix;
 	}
 	/**
 	 * 
 	 * @return list of arraylist containing non-zero 
 	 * 		   elements of transpose matrix of current object
 	 */
-	public List<List<Pair>> transpose(){
- 		List<List<Pair>> transposeMatrix = new ArrayList<List<Pair>>();
+	public List<ArrayList<Pair>> transpose(){
+ 		List<ArrayList<Pair>> transposeMatrix = new ArrayList<ArrayList<Pair>>();
 		for(int i = 0 ; i < this.matrix.size() ; i++){
 			if(this.matrix.get(i) != null){
 				for(int j = 0 ; j < matrix.get(i).size() ; j++){
@@ -89,7 +62,7 @@ public class SparseMatrix {
 	 * 		   false otherwise
 	 */
 	public boolean isSymmetric(){
-		List<List<Pair>> transpose = this.transpose();
+		List<ArrayList<Pair>> transpose = this.transpose();
 		for(int i = 0 ; i < dimension ; i++){
 			if((transpose.get(i) == null && matrix.get(i) != null) || 
 					(transpose.get(i) != null && matrix.get(i) == null) ||
@@ -110,8 +83,7 @@ public class SparseMatrix {
 	 * @return list of arraylist consisting of non-zero
 	 * 		   elements present in the sum of two lists
 	 */
-	public List<List<Pair>> add(int matri[][]){
-		List<List<Pair>> mat = convertToListRepresentation(matri,matri.length);
+	public List<List<Pair>> add(List<List<Pair>> mat){
 		List<List<Pair>> addMatrix = new ArrayList<List<Pair>>();
 		for(int i = 0 ; i < Math.max(this.matrix.size(), mat.size());i++){
 			if(i < Math.min(this.matrix.size(), mat.size())){
@@ -213,8 +185,7 @@ public class SparseMatrix {
 	 * @param m1 first matrix to be multiplied to the object sparse matrix
 	 * @return list of arraylist representing multiplied matrix
 	 */
-	public List<List<Pair>> multiply(int matrixMul[][]){
-		List<List<Pair>> m1 = convertToListRepresentation(matrixMul,matrixMul.length);
+	public List<ArrayList<Pair>> multiply(List<ArrayList<Pair>> m1){
 		List<List<Pair>> multiplyMatrix = new ArrayList<List<Pair>>();
 		List<List<Pair>> m2Transpose = this.transpose();
 		for(int i = 0 ; i < m1.size() ; i++){

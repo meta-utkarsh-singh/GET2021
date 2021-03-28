@@ -56,9 +56,31 @@ public class TestSparseMatrix {
 	}
 	@Test 
 	public void testMultiply(){
+		Pair p1 = new Pair(0,2);
+		Pair p2 = new Pair(0,3);
+		Pair p3 = new Pair(0,4);
+		Pair p4 = new Pair(0,2);
+		Pair p5 = new Pair(1,3);
+		Pair p6 = new Pair(2,4);
+		ArrayList<Pair> col1 = new ArrayList<Pair>();
+		ArrayList<Pair> col2 = new ArrayList<Pair>();
+		ArrayList<Pair> col3 = new ArrayList<Pair>();
+		ArrayList<Pair> col4 = new ArrayList<Pair>();
 		ArrayList<Pair> resultCol1 = new ArrayList<Pair>();
 		resultCol1.add(new Pair(0,29));
+		col1.add(p1);
+		col2.add(p2);
+		col3.add(p3);
+		col4.add(p4);
+		col4.add(p5);
+		col4.add(p6);
+		List<ArrayList<Pair>> matrix1 = new ArrayList<ArrayList<Pair>>();
+		List<List<Pair>> matrix2 = new ArrayList<List<Pair>>();
 		List<ArrayList<Pair>> result = new ArrayList<ArrayList<Pair>>();
+		matrix1.add(0,col1);
+		matrix1.add(1,col2);
+		matrix1.add(2,col3);
+		matrix2.add(0,col4);
 		result.add(0,resultCol1);
 		int matrixArr1[][] = {{2,0,0},{3,0,0},{4,0,0}};
 		int matrixArr2[][] = {{2,3,4},{3,0,0},{4,0,0}};

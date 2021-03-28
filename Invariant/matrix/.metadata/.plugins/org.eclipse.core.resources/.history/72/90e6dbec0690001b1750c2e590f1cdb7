@@ -48,15 +48,7 @@ public class SparseMatrix {
 	 * @return getter for matrix
 	 */
 	public List<List<Pair>> getMatrix(){
-		List<List<Pair>> sparseMatrix = new ArrayList<List<Pair>>();
-		for(int i = 0 ; i < this.matrix.size() ; i++){
-			List<Pair> col = new ArrayList<Pair>();
-			for(int j = 0 ; j < this.matrix.get(i).size() ; j++) {
-				col.add(this.matrix.get(i).get(j));
-			}
-			sparseMatrix.add(i,col);
-		}
-		return sparseMatrix;
+		return this.matrix;
 	}
 	/**
 	 * 
@@ -213,8 +205,7 @@ public class SparseMatrix {
 	 * @param m1 first matrix to be multiplied to the object sparse matrix
 	 * @return list of arraylist representing multiplied matrix
 	 */
-	public List<List<Pair>> multiply(int matrixMul[][]){
-		List<List<Pair>> m1 = convertToListRepresentation(matrixMul,matrixMul.length);
+	public List<List<Pair>> multiply(List<List<Pair>> m1){
 		List<List<Pair>> multiplyMatrix = new ArrayList<List<Pair>>();
 		List<List<Pair>> m2Transpose = this.transpose();
 		for(int i = 0 ; i < m1.size() ; i++){

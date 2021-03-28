@@ -48,15 +48,7 @@ public class SparseMatrix {
 	 * @return getter for matrix
 	 */
 	public List<List<Pair>> getMatrix(){
-		List<List<Pair>> sparseMatrix = new ArrayList<List<Pair>>();
-		for(int i = 0 ; i < this.matrix.size() ; i++){
-			List<Pair> col = new ArrayList<Pair>();
-			for(int j = 0 ; j < this.matrix.get(i).size() ; j++) {
-				col.add(this.matrix.get(i).get(j));
-			}
-			sparseMatrix.add(i,col);
-		}
-		return sparseMatrix;
+		return this.matrix;
 	}
 	/**
 	 * 
