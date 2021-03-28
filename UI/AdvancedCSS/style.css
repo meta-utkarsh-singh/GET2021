@@ -1,0 +1,287 @@
+body{
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    background-image: url(images/bodybg.png);
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+h1 {
+    font-size: 3rem;
+}
+h2 {
+    margin-top : 0px;
+}
+hr {
+    width: 80%;
+    border-color: grey;
+}
+#logo {
+    width: 5rem;
+    margin-left: 10rem;
+}
+#navbar-links {
+    width:50rem
+}
+#btn-download {
+    background-color: orangered;
+    border-width: 1px;
+    height: 2.5rem;
+    width: 6rem;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+#btn-feature {
+    background-color : rgb(24, 70, 171); 
+    border-width: 1px;
+    height: 2.5rem;
+    width: 6rem;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    margin-left: 1rem;
+}
+#center-messege {
+    text-align: center;
+    color: gray;
+}
+.hyphen {
+    color: rgb(24, 70, 171);
+    padding-right: 50px;
+}
+.container-absolute{
+    position: absolute;
+    display: flex;
+    justify-content: left;
+    z-index: 2;
+    margin-top:1%;
+    width: 100%;
+}
+.top-image{
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 0;
+}
+.container {
+    display: flex;
+    justify-content: left;
+    z-index: 2;
+    margin-top:1%;
+    width: 100%;
+    max-width: 100%;
+}
+.container-center {
+    justify-content: center;
+}
+.container-links {
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    margin-top:1%;
+    width: 60%;
+}
+.col {
+    color: white;
+    font-weight: bold;
+    margin-top: 0;
+    list-style-type: none;
+    justify-self: auto;
+    z-index: 3;
+}
+.col-dark {
+    color : black;
+}
+.horizontal-list {
+    display: inline;
+    margin-left: 1rem;
+}
+.top-image-above{
+    max-width: 60%;
+    max-height: 60%;
+    top: 25%;
+    left: 60%;
+}
+.top-content {
+    position: absolute;
+    z-index: 1;
+}
+.top-content-relative {
+    z-index: 1;
+}
+.fa {
+    z-index: 2;
+}
+.social-link {
+    color: rgb(238, 230, 238);
+}
+.container-center-heading {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    margin-top:1%;
+    width: 100%;
+}
+.col-heading {
+    color:rgb(50, 103, 227);
+    font-weight: bold;
+    margin-top: 0;
+    list-style-type: none;
+    text-align: center;
+}
+.orange-icon {
+    color: rgb(227, 56, 41);
+    margin-right: 1rem;
+    margin-left: 2rem;
+    font-size: 3rem;
+}
+.text-black {
+    color: black;
+    margin-top: 0;
+    width: 15rem;
+}
+.grey-content {
+    color: gray;
+    font-weight: normal;
+}
+.mt-5 {
+    margin-top: 5%;
+}
+.mt-7 {
+    margin-top: 7%;
+}
+.mt-20 {
+    margin-top: 20%;
+}
+.ml-3{
+    margin-left: 3%;
+}
+.ml-5 {
+    margin-left: 5%;
+}
+.tilt-right-60 {
+    display: block;
+    transform: scaleX(6) rotateY(85deg) scaleY(0.6);
+    width:18%;
+    z-index: 2;
+}
+.tilt-left-60 {
+    display: block;
+    transform: scaleX(7) rotateY(-85deg) scaleY(0.6);
+    width:18%;
+    z-index: 2;
+}
+.tilt-right-45 {
+    display: block;
+    transform: scaleX(3) rotateY(70deg) scaleY(0.8);
+    width:18%;
+    z-index: 2;
+}
+.tilt-left-45 {
+    display: block;
+    transform: scaleX(3) rotateY(-70deg) scaleY(0.8);
+    width:18%;
+    z-index: 3;
+}
+.no-tilt {
+    width: 25%;
+    transform: scaleY(0.9);
+    z-index: 5;
+}
+.add-border {
+    border: 1px solid rgb(217, 219, 218);
+    border-radius: 10px;
+}
+.ml-10 {
+    padding-left: 10%;
+}
+.ml-20 {
+    padding-left: 20%;
+}
+.black-content {
+    color: black;
+    font-weight: normal;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.mb-1 {
+    margin-bottom: 1px;
+}
+.mt-1 {
+    margin-top: 1px;
+}
+.container-end {
+    width: 100%;
+    justify-content: end;
+    text-align: end;
+}
+.mt-6 {
+    margin-top: 6px;
+}
+.col-50{
+    width: 35%;
+}
+.ml-18 {
+    margin-left: 18%;
+}
+.mr-5 {
+    margin-right: 5px;
+}
+.top-heading {
+    top : 25%;
+    left: 10rem;  
+    width: 25rem;
+    color: white; 
+}
+.bg-blue {
+    background-color: rgb(62, 122, 250);
+}
+.col-100 {
+    width: 100%;
+}
+.font-med{
+    font-size: 2rem;
+}
+.font-white {
+    color: white;
+    font-size: 1.3rem;
+}
+.bg-black {
+    background-color: black;
+}
+.mt-0 {
+    margin-top: 0;
+}
+.mt-2 {
+    margin-top: 2%;
+}
+.content-grey {
+    color: grey;
+}
+
+/* Transitions start here*/
+
+.container > .col > #phone1-transition:hover {
+    transform: scale(1.2,1.2);
+}
+#screen02-transition:hover{
+    transform: scale(1.2,1.2);
+}
+#screen03-transition:hover {
+    transform: scale(1.2,1.2);
+}
+i:hover{
+    transform:scale(1.2,1.2);
+}
+li:hover {
+    transform:scale(1.2,1.2);
+}
+button:hover {
+    transform: scale(1.2,1.2);
+}
