@@ -2,16 +2,22 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Shape" key="selection"/>
+		<item value="Shape.ShapeType.Rectangle" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="&quot;Rectangle&quot;"/>
+			<item value="&quot;Square&quot;"/>
+			<item value="&quot;Circle&quot;"/>
 			<item value="Pair"/>
 			<item value="Point"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Shape.ShapeType.Rectangle"/>
+			<item value="Shape.ShapeType.Square"/>
+			<item value="Shape.ShapeType.Circle"/>
 			<item value="Shape"/>
 		</list>
 	</section>

@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 public class FactoryShape {
 	/**
 	 * 
@@ -8,21 +9,25 @@ public class FactoryShape {
 	 * @param shapeParameter list representing parameter of shape
 	 * @return object of shape whose type is defined by string type
 	 */
-	public Shape createShape(String type, Point origin, List<Double> shapeParameter){
+	public static Shape createShape(Shape.ShapeType type, Point origin, List<Double> shapeParameter){
 		if(type == null){
 			return null;
 		}
-		else if(type == "Square"){
+		else if(type == Shape.ShapeType.Square){
 			Square square = new Square(origin, shapeParameter);
 			return square;
 		}
-		else if(type == "Circle"){
+		else if(type == Shape.ShapeType.Circle){
 			Circle circle = new Circle(origin, shapeParameter);
 			return circle;
 		}
-		else if(type == "Rectangle"){
+		else if(type == Shape.ShapeType.Rectangle){
 			Rectangle rectangle = new Rectangle(origin, shapeParameter);
 			return rectangle;
+		}
+		else if(type == Shape.ShapeType.Triangle) {
+			Triangle triangle = new Triangle(origin, shapeParameter);
+			return triangle;
 		}
 		return null;
 	}

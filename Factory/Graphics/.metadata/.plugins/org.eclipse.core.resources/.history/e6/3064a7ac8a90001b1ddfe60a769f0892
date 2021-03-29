@@ -1,0 +1,34 @@
+import java.util.*;
+
+
+public class FactoryShape {
+	/**
+	 * 
+	 * @param type string representing type of shape
+	 * @param origin starting point of the shape
+	 * @param shapeParameter list representing parameter of shape
+	 * @return object of shape whose type is defined by string type
+	 */
+	public static Shape createShape(Shape.ShapeType type, Point origin, List<Double> shapeParameter){
+		if(type == null){
+			return null;
+		}
+		else if(type == Shape.ShapeType.Square){
+			Square square = new Square(origin, shapeParameter);
+			return square;
+		}
+		else if(type == Shape.ShapeType.Circle){
+			Circle circle = new Circle(origin, shapeParameter);
+			return circle;
+		}
+		else if(type == Shape.ShapeType.Rectangle){
+			Rectangle rectangle = new Rectangle(origin, shapeParameter);
+			return rectangle;
+		}
+		else if(type == Shape.ShapeType.Triangle) {
+			
+		}
+		return null;
+	}
+
+}

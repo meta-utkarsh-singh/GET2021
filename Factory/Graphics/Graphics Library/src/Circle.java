@@ -31,8 +31,9 @@ public class Circle implements Shape {
 		double circleY = this.origin.getY();
 		double checkPointX = checkPoint.getX();
 		double checkPointY = checkPoint.getY();
-		double distanceFromCenter = Math.sqrt(Math.pow(circleX-checkPointX, 2)
-				+ Math.pow(checkPointY-circleY, 2));
+		double distanceFromCenter = Math.sqrt(Math.pow(circleX+this.radius.get(0)
+				-checkPointX, 2)
+				+ Math.pow(checkPointY+this.radius.get(0)-circleY, 2));
 		if(distanceFromCenter <= this.radius.get(0)){
 			return true;
 		}

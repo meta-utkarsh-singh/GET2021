@@ -1,9 +1,10 @@
 
 public interface Shape {
-	enum ShapeType {
+	public static enum ShapeType {
 		Square,
 		Circle,
-		Rectangle
+		Rectangle,
+		Triangle
 	}
 	String getTimeStamp();
 	/**

@@ -20,30 +20,36 @@ public class Screen {
 	 * @param type
 	 * @param shapeParameter
 	 */
-	public int addShape(Point origin, String type, List<Double> shapeParameter){
-		if(type == "Square"){
+	public int addShape(Point origin, Shape.ShapeType type, List<Double> shapeParameter){
+		if(type == Shape.ShapeType.Square){
 			if(origin.getX() > screen.getX() || origin.getY() > screen.getY()
 					|| origin.getX() + shapeParameter.get(0)>screen.getX() || 
 					origin.getY() + shapeParameter.get(0) > screen.getY()){
 				return 0;
 			}
 		}
-		else if(type == "Rectangle"){
+		else if(type == Shape.ShapeType.Rectangle){
 			if(origin.getX() > screen.getX() || origin.getY() > screen.getY()
 					|| origin.getX() + shapeParameter.get(0)>screen.getX() || 
 					origin.getY() + shapeParameter.get(1) > screen.getY()){
 				return 0;
 			}
 		}
-		else if(type == "Circle"){
+		else if(type == Shape.ShapeType.Circle){
 			if(origin.getX() > screen.getX() || origin.getY() > screen.getY()
 					|| origin.getX() + shapeParameter.get(0)>screen.getX() || 
 					origin.getY() + shapeParameter.get(0) > screen.getY()){
 				return 0;
 			}
 		}
-		FactoryShape factory = new FactoryShape();
-		Shape shape = factory.createShape(type, origin, shapeParameter);
+		else if(type == Shape.ShapeType.Triangle){
+			if(origin.getX() > screen.getX() || origin.getY() > screen.getY()
+					|| origin.getX() + shapeParameter.get(0)>screen.getX() || 
+					origin.getY() + shapeParameter.get(1) > screen.getY()){
+				return 0;
+			}
+		}
+		Shape shape = FactoryShape.createShape(type, origin, shapeParameter);
 		areaOfShapes.add(shape);
 		perimOfShapes.add(shape);
 		timeStamp.add(shape);
@@ -73,13 +79,15 @@ public class Screen {
 	 * 
 	 * @param type type of shape that needs to be removed
 	 */
-	public int deleteShapeOnType(String type){
-		if(type != "Square" && type != "Circle" && type != "Rectangle"){
+	public int deleteShapeOnType(Shape.ShapeType type){
+		if(type != Shape.ShapeType.Square && type != Shape.ShapeType.Circle 
+				&& type != Shape.ShapeType.Rectangle && 
+				type!=Shape.ShapeType.Triangle){
 			System.out.println("Shape not found");
 			return 0;
 		}
 		for(int i = 0 ; i < shapeOnScreen.size() ; i++){
-			if(shapeOnScreen.get(i).shapeType() == type){
+			if(shapeOnScreen.get(i).shapeType() == type.name()){
 				shapeOnScreen.remove(i);
 			}
 		}
@@ -89,21 +97,26 @@ public class Screen {
 	 * 
 	 * @param typeOfSort type of sorting that needs to be performed
 	 */
-	public void sort(int typeOfSort){
+	public List<Shape> sort(int typeOfSort){
 		if(typeOfSort == 1){
 			Collections.sort(areaOfShapes, new CompareByArea());
+			return areaOfShapes;
 		}
 		else if(typeOfSort == 2){
 			Collections.sort(distanceFromOrigin, new CompareByDistanceFromOrigin());
+			return distanceFromOrigin;
 		}
 		else if(typeOfSort == 3){
 			Collections.sort(perimOfShapes, new CompareByPerimeter());
+			return perimOfShapes;
 		}
 		else if(typeOfSort == 4){
 			Collections.sort(timeStamp, new CompareByTimeStamp());
+			return timeStamp;
 		}
 		else {
 			System.out.println("Enter valid type of sort");
+			return null;
 		}
 	}
 	/**
