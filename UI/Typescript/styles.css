@@ -1,0 +1,102 @@
+body {
+    background-color: aliceblue;
+    margin-top : 0%;
+    margin-bottom: 0%;
+    margin-right: 0%;
+    margin-left: 0%;
+}
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+input:focus {
+    outline: none;
+}
+img {
+    height: 100%;
+    width: 100%;
+}
+input {
+    margin-bottom : 2px;
+    text-align: justify;
+}
+form {
+    border: 1px solid black;
+    padding-left: 10px;
+    border-radius: 15px;
+    padding-top : 5px;
+    padding-bottom : 5px;
+    padding-left : 10px;
+    background-color: khaki;
+}
+h1 {
+    display: block;
+}
+#image {
+    margin-left: 0%;
+    padding-right: 0%;
+    background-size: cover;
+    height:100%;
+    margin-bottom: 20px;
+}
+#pricing {
+    display: flex;
+    margin-left: 10px;
+}
+.nav {
+    padding-left : 5px;
+    padding-bottom: 5px;
+    padding-top : 5px;
+    background-color: khaki;
+}
+.forms {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom : 20px;
+    text-align: justify;
+}
+.head {
+    border: 1px solid black;
+    border-radius: 15px;
+    padding-top : 5px;
+    padding-bottom : 5px;
+    padding-left : 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: khaki;
+    display: block;
+}
+.vehicle-type-info {
+    float:left;
+    width: 32.5%;
+    border: 1px solid black;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: khaki;
+}
+.d-none {
+    display: none;
+}
+.border-red {
+    border: 1px solid red;
+}
+.border-orange {
+    border:1px solid orange;
+}
+.border-green {
+    border-color:1px solid green;
+}
+#pricing-motorcycle {
+    margin-left : 10px;
+    margin-right : 10px;
+} 
+.price-daily:hover {
+    color: red;
+}
+.price-monthly:hover {
+    color: red;
+}
+.price-yearly:hover {
+    color: red;
+}
