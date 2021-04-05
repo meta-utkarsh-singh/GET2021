@@ -29,6 +29,9 @@ form {
     padding-left : 10px;
     background-color: khaki;
 }
+h1 {
+    display: block;
+}
 #image {
     margin-left: 0%;
     padding-right: 0%;
@@ -37,6 +40,7 @@ form {
     margin-bottom: 20px;
 }
 #pricing {
+    display: flex;
     margin-left: 10px;
 }
 .nav {
@@ -60,6 +64,7 @@ form {
     margin-left: 10px;
     margin-right: 10px;
     background-color: khaki;
+    display: block;
 }
 .vehicle-type-info {
     float:left;
@@ -86,3 +91,12 @@ form {
     margin-left : 10px;
     margin-right : 10px;
 } 
+.price-daily:hover {
+    color: red;
+}
+.price-monthly:hover {
+    color: red;
+}
+.price-yearly:hover {
+    color: red;
+}

@@ -7,10 +7,8 @@
 	</head>
 	<body>
 		<div class="nav">
-			<a href="#add-emp"> Add Employee </a>&nbsp
-			<a href="#add-veh"> Add Vehicle </a>&nbsp
-			<a href="#feedback"> Feedback </a>&nbsp
-			<a href="#pricing" margin = "100px"> Pricing </a>&nbsp
+			<a href="#add-emp-head"> Add Employee </a>&nbsp
+			<a href="#feedback-head"> Feedback </a>&nbsp
 		</div>
 		<div id="image">
 			<img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cGFya2luZ3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80">
@@ -18,6 +16,7 @@
 		<h1 id="add-emp-head" class="head"> Add Employee </h1>
 		<div id="add-emp" class="forms">
 			<form>
+				<h1>Employee Form</h1>
 				<div id="fname">
 					<label for="i-firstname" id="l-fname">First name:</label><br>
 					<input type="text" id="i-firstname" name="fname" required>
@@ -36,6 +35,13 @@
 				<div id="password" class = "d-none">
 					<label for="i-pwd" id="l-password">Password:</label><br>
 					<input type="password" id="i-pwd" name="pwd" required><br>
+					<p>
+						Please enter a strong password, Your password should contain:<br>
+						*Minimum length of 8 characters<br>
+						*At least 1 uppercase letter<br>
+						*At least 1 lowercase letter<br>
+						*At least 1 digit
+					</p>
 				</div>
 				<div id="conf-pwd" class = "d-none">
 					<label for="i-confpwd" id="l-confpwd">Confirm Password:</label><br>
@@ -47,9 +53,10 @@
 				</div>
 			</form>
 		</div>
-		<h1 id="add-veh-head" class="head"> Add Vehicle </h1>
+		<h1 id="add-veh-head" class="head d-none"> Add Vehicle </h1>
 		<div id="add-veh" class="forms">
 			<form>
+				<h1>Vehicle Form</h1>
 				<div id="c-name">
 					<label for="i-cname" id="l-cname">Add Company:</label><br>
 					<input type="text" id="i-cname" name="cname"><br>
@@ -81,9 +88,43 @@
 				</div>
 			</form>
 		</div>
+		<div id="pricing" style="margin-left: 40%;">
+			<div id="pricing-cycle" class="vehicle-type-info d-none">
+				<h4 class="type" id="type-cycle"> Cycle </h4>
+				<p class="price-daily" id="price-daily-cycle"> $5 Daily </p>
+				<p class="price-monthly" id="price-monthly-cycle"> $100 Monthly </p>
+				<p class="price-yearly" id="price-yearly-cycle"> $500 Yearly </p>
+				<button id = "pass-cycle" disabled>Add pass</button>
+				<button id = "c-inr">Get INR</button>
+				<button id = "c-yen">Get YEN</button>
+				<button id="c-dollar">Get $</button>
+			</div>
+			<div id="pricing-motorcycle" class="vehicle-type-info d-none">
+				<h4 class="type" id="type-motorcycle"> MotorCycle </h4>
+				<p class="price-daily" id="price-daily-motorcycle"> $10 Daily </p>
+				<p class="price-monthly" id="price-monthly-motorcycle"> $200 Monthly </p>
+				<p class="price-yearly" id="price-yearly-motorcycle"> $1000 Yearly </p>
+				<button id="pass-motorcycle" disabled>Add pass</button>
+				<button id = "m-inr">Get INR</button>
+				<button id = "m-yen">Get YEN</button>
+				<button id="m-dollar">Get $</button>
+			</div>
+			<div id="pricing-four-wheelers" class="vehicle-type-info d-none">
+				<h4 class="type" id="type-four-wheelers"> Four Wheelers </h4>
+				<p class="price-daily" id="price-daily-four-wheelers"> $20 Daily </p>
+				<p class="price-monthly" id="price-monthly-four-wheelers"> $500 Monthly </p>
+				<p class="price-yearly" id="price-yearly-four-wheelers"> $3500 Yearly </p>
+				<button id="pass-four-wheeler" disabled>Add pass</button>
+				<button id = "f-inr">Get INR</button>
+				<button id = "f-yen">Get YEN</button>
+				<button id="f-dollar">Get $</button>
+			</div>
+
+		</div>
 		<h1 id="feedback-head" class="head"> Feedback </h1>
 		<div id="feedback" class="forms">
 			<form>
+				<h1>Feedback</h1>
 				<div id="emp-feedback-name">
 					<label for="name">Name: </label><br>
 					<input type="text" id="name" name="name"><br>
@@ -100,36 +141,6 @@
 					<input type="submit">
 				</div>
 			</form>
-		</div>
-		<div id="pricing" style="margin-left: 40%;">
-			<div id="pricing-cycle" class="vehicle-type-info d-none">
-				<h4 class="type" id="type-cycle"> Cycle </h4>
-				<p class="price-daily" id="price-daily-cycle"> $5 Daily </p>
-				<p class="price-monthly" id="price-monthly-cycle"> $100 Monthly </p>
-				<p class="price-yearly" id="price-yearly-cycle"> $500 Yearly </p>
-				<button id = "pass-cycle">Add pass</button>
-				<button id = "c-inr">Get INR</button>
-				<button id = "c-yen">Get YEN</button>
-			</div>
-			<div id="pricing-motorcycle" class="vehicle-type-info d-none">
-				<h4 class="type" id="type-motorcycle"> MotorCycle </h4>
-				<p class="price-daily" id="price-daily-motorcycle"> $10 Daily </p>
-				<p class="price-monthly" id="price-monthly-motorcycle"> $200 Monthly </p>
-				<p class="price-yearly" id="price-yearly-motorcycle"> $1000 Yearly </p>
-				<button id="pass-motorcycle">Add pass</button>
-				<button id = "m-inr">Get INR</button>
-				<button id = "m-yen">Get YEN</button>
-			</div>
-			<div id="pricing-four-wheelers" class="vehicle-type-info d-none">
-				<h4 class="type" id="type-four-wheelers"> Four Wheelers </h4>
-				<p class="price-daily" id="price-daily-four-wheelers"> $20 Daily </p>
-				<p class="price-monthly" id="price-monthly-four-wheelers"> $500 Monthly </p>
-				<p class="price-yearly" id="price-yearly-four-wheelers"> $3500 Yearly </p>
-				<button id="pass-four-wheeler">Add pass</button>
-				<button id = "f-inr">Get INR</button>
-				<button id = "f-yen">Get YEN</button>
-			</div>
-
 		</div>
 	</body>
 	<script src="script.js"></script>
